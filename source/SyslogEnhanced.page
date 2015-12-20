@@ -22,17 +22,17 @@ $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi')."
 $search = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog.conf'));
 
 echo "<pre class='up'>";
-echo "<font size='3'>Legend=><font color=red>&nbsp;Errors&nbsp;</font>";
-echo "<font color=orange>&nbsp;Minor Issues&nbsp;</font>";
-echo "<font color=lime>&nbsp;Lime Tech&nbsp;</font>";
-echo "<font color=green>&nbsp;unRAID engine&nbsp;</font>";
-echo "<font color=blue>&nbsp;System&nbsp;</font>";
-echo "<font color=teal>&nbsp;Drive related&nbsp;</font>";
-echo "<font color=purple>&nbsp;Network&nbsp;</font>";
-echo "<font color=olive>&nbsp;Logins&nbsp;</font>";
-echo "<font color=brown>&nbsp;Misc&nbsp;</font>";
-echo "<font color=navy>&nbsp;Other emhttp&nbsp;</font>";
-echo "</font></br></br>";
+echo "<font size='3'>Legend=><font style='background-color:red' color='white'> Errors </font>";
+echo "&nbsp;<font style='background-color:orange' color='black'> Minor Issues </font>";
+echo "&nbsp;<font style='background-color:lime' color='black'> Lime Tech </font>";
+echo "&nbsp;<font style='background-color:green' color='white'> unRAID engine </font>";
+echo "&nbsp;<font style='background-color:blue' color='white'> System </font>";
+echo "&nbsp;<font style='background-color:teal' color='white'> Drive related </font>";
+echo "&nbsp;<font style='background-color:purple' color='white'> Network </font>";
+echo "&nbsp;<font style='background-color:olive' color='white'> Login </font>";
+echo "&nbsp;<font style='background-color:brown' color='white'> Misc </font>";
+echo "&nbsp;<font style='background-color:navy' color='white'> emhttp </font>";
+echo "&nbsp;</font></br></br>";
 
 foreach (file('/var/log/syslog') as $line) {
 	$found_it = false;
