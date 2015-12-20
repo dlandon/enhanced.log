@@ -1,0 +1,219 @@
+Menu="UNRAID-OS"
+Title="System Log (Enhanced)"
+---
+<?PHP
+/* Copyright 2015, Lime Technology
+ * Copyright 2015, Bergware International.
+ * Copyright 2015, Dan Landon
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+?>
+
+<?
+$zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi').".zip";
+/* Array of strings and hithlight colors.  "string", "hightlght color", "font color". */
+$search = array
+(
+	/* Once a rule is matched, we do not look further.  These few lines should be matched out of "color" sequence
+	   that way, we do not match patterns further in this list. */
+	array("spinup", "gray", "white"),
+	array("spindown", "gray", "white"),
+	array("REISERFS.*standard journal", "gray", "white"),
+	array("REISERFS.*using ordered", "gray", "white"),
+	array("REISERFS.*journal params", "gray", "white"),
+	array("REISERFS.*r5 hash", "gray", "white"),
+	array("REISERFS.*checking transaction log \(md[0-9]*\)", "gray", "white"),
+	array("xfs", "gray", "white"),
+	array("btrfs", "gray", "white"),
+	array("mkdir /mnt/disk", "gray", "white"),
+	array("scst_", "gray", "white"),
+	array("sending DHCP_REQUEST for", "gray", "white"),
+	array("dhcpIPaddrLeaseTime=[0-9]* in DHCP server response.", "gray", "white"),
+	array("dhcpT[12]value is missing in DHCP server response.", "gray", "white"),
+	array("DHCP_ACK received from", "gray", "white"),
+	array(": connect from [0-9.]*", "gray", "white"),
+	array("ROOT LOGIN  on ", "gray", "white"),
+	array("kernel:[ \t]*$", "gray", "white"),
+	array("rdevNumErrors\.[0-9]*=0", "gray", "white"),
+	array("sas eh calling libata port error handler", "gray", "white"),
+	array("[ \t]terror", "black", "white"),
+	array("sas: ata[0-9].*dev error handler", "teal", "white"),
+
+	/* Match these first, to prevent from false hits in other colors. */
+	array(" ACPI Error ", "orange", "black"),
+	array(" read_file: error 2 opening /boot/config/super.dat", "green", "white"),
+	array(" ntpd.*Listening on interface", "purple", "white"),
+	array(" checksumming", "blue", "white"),
+	array("HPA detected: current [0-9]*168,", "black", "white"),
+	array("kernel:  \[mem .* page ", "black", "white"),
+	array("get value of subfeature", "blue", "white"),
+
+	/* Other user-defined syslog entries
+	   Match these first, to prevent from false hits in other colors. */
+	array("preclear_disk", "brown", "white"),
+	array("error", "red", "white"),
+	array("Emask ", "red", "white"),
+	array("parity incorrect", "red", "white"),
+	array("Fsck?", "red", "white"),
+	array("invalid opcode: ", "red", "white"),
+	array("nobody cared", "red", "white"),
+	array("Unknown boot option", "red", "white"),
+	array(" ata[0-9\. ]+: disabled", "red", "white"),
+	array(" DMA disabled", "red", "white"),
+	array("kernel BUG ", "red", "white"),
+	array("Write Protect is on", "red", "white"),
+	array("Call trace", "red", "white"),
+	array("tainted", "red", "white"),
+	array("kernel:  \[", "red", "white"),
+	array("out[ _]of[ _]memory", "red", "white"),
+	array("killed", "red", "white"),
+	array("HPA detected: current [0-9]*055,", "red", "white"),
+	array(" ACPI Warning", "orange", "black"),
+	array(" ACPI Exception", "orange", "black"),
+	array("spurious", "orange", "black"),
+	array("HPA", "orange", "black"),
+	array("Host Protected Area", "orange", "black"),
+	array("invalid signature", "orange", "black"),
+	array(" (soft|hard) resetting ", "orange", "black"),
+	array(" failed[ ,]", "orange", "black"),
+	array("\<errno=[^0]", "orange", "black"),
+	array(" limiting speed to ", "orange", "black"),
+	array(": replayed ", "orange", "black"),
+	array("duplicate object", "orange", "black"),
+	array(" checksum", "orange", "black"),
+	array("warning", "orange", "black"),
+	array("conflicts", "orange", "black"),
+	array("kill", "orange", "black"),
+	array("power failure", "orange", "black"),
+	array("power is back", "orange", "black"),
+
+	/* Lime Technology lines. */
+	array(": unRAID System", "lime", "black"),
+	array("Lime Tech", "lime", "black"),
+	array("key detected, registered", "lime", "black"),
+	array(": Unregistered", "lime", "black"),
+
+	/* Only applies to syslogs from unRAID v4.3 and up. */
+	array("Linux version", "blue", "white"),
+
+	/* Significant system lines. */
+	array("MHz processor", "blue", "white"),
+	array("CPU: Intel", "blue", "white"),
+	array("CPU[0-9]: Intel", "blue", "white"),
+	array("CPU: AMD", "blue", "white"),
+	array("CPU[0-9]: AMD", "blue", "white"),
+	array("kernel: Processors: ", "blue", "white"),
+	array("kernel: Memory: ", "blue", "white"),
+	array("kernel: SMP: ", "blue", "white"),
+	array("B HIGHMEM ", "blue", "white"),
+	array(" LOWMEM ", "blue", "white"),
+	array(" md: xor using", "blue", "white"),
+	array("BogoMIPS", "blue", "white"),
+	array("kernel: Console: ", "blue", "white"),
+	array(" Thermal Zone", "blue", "white"),
+	array(" Adding [0-9]+k swap on ", "blue", "white"),
+	array("Kernel command line:", "blue", "white"),
+	array("_sse", "blue", "white"),
+	array("found.*chip", "blue", "white"),
+	array("controller", "blue", "white"),
+	array("version ", "blue", "white"),
+	array("mouse|speaker|KBD port|AUX port|PS/2|keyboard", "blue", "white"),
+	array("driver", "blue", "white"),
+
+	/* Drive related lines. */
+	array("Device inventory:", "teal", "white"),
+	array(": pci-", "teal", "white"),
+	array(", ATA DISK drive", "teal", "white"),
+	array("Direct-Access ", "teal", "white"),
+	array(" attached scsi disk", "teal", "white"),
+	array(" attached scsi removable disk", "teal", "white"),
+	array("SATA link up ", "teal", "white"),
+	array(" md[0-9][:) ]", "teal", "white"),
+	array(" md1[0-9][:) ]", "teal", "white"),
+	array(" md2[0-9][:) ]", "teal", "white"),
+	array(" [sh]d[a-z]1[: ]", "teal", "white"),
+	array("kernel:  [sh]d[a-z][: ]", "teal", "white"),
+	array("  ide[0-9]: [^B]", "teal", "white"),
+	array("hdparm ", "teal", "white"),
+	array("scsi|[^d]ata|sas|ahci|[^a-z0-9]sd[a-z][^a-z]|usb", "teal", "white"),
+	array("import disk[0-9]*: ", "teal", "white"),
+	array("ncq", "teal", "white"),
+
+	/* unRAID related lines. */
+	array(" mdcmd ", "green", "white"),
+	array(" md: ", "green", "white"),
+	array("super.dat ", "green", "white"),
+	array(": running, size:", "green", "white"),
+
+	/* Network related lines. */
+	array("rc.inet1", "purple", "white"),
+	array("forcedeth", "purple", "white"),
+	array(" r8169[ :]", "purple", "white"),
+	array(" e1000[ :]", "purple", "white"),
+	array(" e1000e[ :]", "purple", "white"),
+	array(" sky2[ :]", "purple", "white"),
+	array(" skge[ :]", "purple", "white"),
+	array(" tg3[ :.]", "purple", "white"),
+	array(" bcm5700[ :]", "purple", "white"),
+	array(" sk98lin[ :]", "purple", "white"),
+	array("dhcp", "purple", "white"),
+	array("eth[0-9]", "purple", "white"),
+
+	/* Logins and connections. */
+	array("ROOT LOGIN ", "olive", "white"),
+	array("invalid password", "olive", "white"),
+	array(" (in.)?telnetd", "olive", "white"),
+
+	/* General emhttp lines. */
+	array("emhttp[:[_]", "navy", "white")
+);
+
+echo "<pre class='up'>";
+foreach (file('/var/log/syslog') as $line) {
+	$found_it = false;
+	$i = 0;
+	foreach ($search as $s) {
+		if (stripos($line, $s[0]) !== false) {
+			$found_it = true;
+			break;
+		} elseif (fnmatch("*".$s[0]."*", $line)) {
+			$found_it = true;
+			break;
+		}
+		$i++;
+	}
+
+	if ($found_it) {
+		echo "<font style='background-color:".$search[$i][1]."'; color=".$search[$i][2].">$line</font>";
+	} else {
+		echo $line;
+	}
+}
+echo "</pre>";
+
+?>
+<script>
+function cleanUp() {
+  if (document.hasFocus()) {
+    $('input[value="Downloading..."]').val('Download').prop('disabled',false);
+    $.post('/webGui/include/Download.php',{cmd:'delete',file:'<?=$zip?>'});
+  } else {
+    setTimeout(cleanUp,4000);
+  }
+}  
+function getlog() {
+  $('input[value="Download"]').val('Downloading...').prop('disabled',true);
+  $.post('/webGui/include/Download.php',{cmd:'save',source:'/var/log/syslog',file:'<?=$zip?>'},function(zip) {
+    location = zip;
+    setTimeout(cleanUp,4000);
+  });
+}
+$('.tabs').append("<span class='status vhshift'><input type='button' value='Download' onclick='getlog()'></span>");
+</script>
+<input type="button" value="Download" onclick="getlog()"><input type="button" value="Done" onclick="done()">
