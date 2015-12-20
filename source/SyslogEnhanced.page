@@ -21,19 +21,19 @@ $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi')."
 /* Array of strings and highlight colors - "search string", "background color", "font color". */
 $search = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog.conf'));
 
-echo "<div class='tab'><strong>Legend => <font color=red>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Errors&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=orange>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minor Issues&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=lime>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lime Tech&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=green>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unRAID engine&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=teal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Drive related&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=purple>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Network&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=olive>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logins&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=brown>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Misc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "<font color=navy>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other emhttp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>";
-echo "</strong></div>";
-
 echo "<pre class='up'>";
+echo "<font size='3'>Legend=><font color=red>&nbsp;Errors&nbsp;</font>";
+echo "<font color=orange>&nbsp;Minor Issues&nbsp;</font>";
+echo "<font color=lime>&nbsp;Lime Tech&nbsp;</font>";
+echo "<font color=green>&nbsp;unRAID engine&nbsp;</font>";
+echo "<font color=blue>&nbsp;System&nbsp;</font>";
+echo "<font color=teal>&nbsp;Drive related&nbsp;</font>";
+echo "<font color=purple>&nbsp;Network&nbsp;</font>";
+echo "<font color=olive>&nbsp;Logins&nbsp;</font>";
+echo "<font color=brown>&nbsp;Misc&nbsp;</font>";
+echo "<font color=navy>&nbsp;Other emhttp&nbsp;</font>";
+echo "</font></br></br>";
+
 foreach (file('/var/log/syslog') as $line) {
 	$found_it = false;
 	$i = 0;
