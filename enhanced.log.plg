@@ -5,13 +5,15 @@
 <!ENTITY author     "dlandon">
 <!ENTITY version    "2015.12.20">
 <!ENTITY launch    "Tools/SyslogEnhanced">
-<!ENTITY MD5		"482c2e2fefa8d53bfb89b1e79ef16623">
+<!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
+<!ENTITY MD5		"7229d67a4c5f7ac2c46b6cd714ba00f0">
 ]>
 
 <PLUGIN  name="&name;"
          author="&author;"
          version="&version;"
-         launch="&launch;">
+         launch="&launch;"
+         pluginURL="&pluginURL;">
 
 <CHANGES>
 ##&name;
