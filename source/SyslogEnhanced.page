@@ -1,5 +1,7 @@
-Menu="UNRAID-OS"
-Title="System Log (Enhanced)"
+Menu="SystemInformation"
+Type="xmenu"
+Title="System Log"
+Icon="enhanced.log.png"
 ---
 <?PHP
 /* Copyright 2015, Lime Technology
