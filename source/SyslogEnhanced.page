@@ -20,26 +20,128 @@ $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi')."
 
 /* Array of strings and highlight colors - "search string", "background color", "font color". */
 $search = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog.conf'));
+$enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 
 echo "<pre class='up'>";
-echo "<font size='3'><font style='background-color:red' color='white'> Errors </font>";
-echo "&nbsp;<font style='background-color:orange' color='black'> Minor Issues </font>";
-echo "&nbsp;<font style='background-color:lime' color='black'> Lime Tech </font>";
-echo "&nbsp;<font style='background-color:green' color='white'> Array </font>";
-echo "&nbsp;<font style='background-color:blue' color='white'> System </font>";
-echo "&nbsp;<font style='background-color:gray' color='white'> File System </font>";
-echo "&nbsp;<font style='background-color:teal' color='white'> Devices </font>";
-echo "&nbsp;<font style='background-color:purple' color='white'> Network </font>";
-echo "&nbsp;<font style='background-color:olive' color='white'> Login </font>";
-echo "&nbsp;<font style='background-color:navy' color='white'> emhttp </font>";
-echo "&nbsp;</font></br></br>";
+echo "<font size='3'>";
+if ($enhanced_log_cfg['ERRORS'] == "yes") {
+	echo "<font style='background-color:red' color='white'> Errors </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "red") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
+	echo "<font style='background-color:orange' color='black'> Minor Issues </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "orange") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
+	echo "<font style='background-color:lime' color='black'> Lime Tech </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "lime") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['ARRAY'] == "yes") {
+	echo "<font style='background-color:green' color='white'> Array </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "green") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['SYSTEM'] == "yes") {
+	echo "<font style='background-color:blue' color='white'> System </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "blue") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
+	echo "<font style='background-color:gray' color='white'> File System </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "gray") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['DEVICES'] == "yes") {
+	echo "<font style='background-color:teal' color='white'> Devices </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "teal") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['NETWORK'] == "yes") {
+	echo "<font style='background-color:purple' color='white'> Network </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "purple") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['LOGIN'] == "yes") {
+	echo "<font style='background-color:olive' color='white'> Login </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "olive") {
+			$search[$i][1] = "";
+		}
+		$i++;
+	}
+}
+if ($enhanced_log_cfg['EMHTTP'] == "yes") {
+	echo "<font style='background-color:navy' color='white'> emhttp </font>&nbsp;";
+} else {
+	$i = 0;
+	foreach ($search as $s) {
+		if ($s[1] == "navy") {
+			unset($search[$i]);
+		}
+		$i++;
+	}
+}
+echo "</font><br/><br/>";
 
-echo "<div style='height:650px;width:1242px;border:2px solid #ccc;overflow:auto;'>";
+echo "<div style='height:650px;width:1245px;border:2px solid #ccc;overflow:auto;'>";
 foreach (file('/var/log/syslog') as $line) {
 	$found_it = false;
 	$i = 0;
 	foreach ($search as $s) {
-		if (preg_match("/$s[0]/i", $line)) {
+		if (($s[1] !== "") && (preg_match("/$s[0]/i", $line))) {
 			$found_it = true;
 			break;
 		}
