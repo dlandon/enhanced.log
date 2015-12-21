@@ -38,10 +38,7 @@ foreach (file('/var/log/syslog') as $line) {
 	$found_it = false;
 	$i = 0;
 	foreach ($search as $s) {
-		if (stripos($line, $s[0]) !== false) {
-			$found_it = true;
-			break;
-		} elseif (fnmatch("*".$s[0]."*", $line)) {
+		if (preg_match("/$s[0]/i", $line)) {
 			$found_it = true;
 			break;
 		}
