@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2015.12.20c">
+<!ENTITY version    "2015.12.20d">
 <!ENTITY launch    "Tools/SyslogEnhanced">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"a0f6e63a4446de439e49a80b64f42276">
+<!ENTITY MD5		"30405842e2e2d68dd38f0c4ed115ddb8">
 ]>
 
 <PLUGIN  name="&name;"
@@ -17,7 +17,7 @@
 
 <CHANGES>
 ##&name;
-###2015.12.20c
+###2015.12.20d
 - Initial unRAID V6.1 release.
 </CHANGES>
 
