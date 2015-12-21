@@ -34,6 +34,7 @@ echo "&nbsp;<font style='background-color:olive' color='white'> Login </font>";
 echo "&nbsp;<font style='background-color:navy' color='white'> emhttp </font>";
 echo "&nbsp;</font></br></br>";
 
+echo "<div style='height:650px;width:1242px;border:2px solid #ccc;overflow:auto;'>";
 foreach (file('/var/log/syslog') as $line) {
 	$found_it = false;
 	$i = 0;
@@ -51,6 +52,7 @@ foreach (file('/var/log/syslog') as $line) {
 		echo $line;
 	}
 }
+echo "</div>";
 echo "</pre>";
 
 ?>
