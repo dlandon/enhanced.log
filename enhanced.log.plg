@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2015.12.22">
+<!ENTITY version    "2015.12.22a">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"8c55fab4d6a0022a69dede363765c7e3">
+<!ENTITY MD5		"ea055e4fc51ff4701e8069526961faf5">
 ]>
 
 <PLUGIN  name="&name;"
@@ -17,13 +17,15 @@
 
 <CHANGES>
 ##&name;
-###2015.12.22
+###&version;
 - Initial unRAID V6.1 release (beta).
 </CHANGES>
 
 <!--
 Copyright 2015, Dan Landon
-This is a webGUI plugin to view the system log with lines highlighted in color.
+his plugin adds a webGui page to view the system log with highlighted lines.
+You can enable or disable event highlighting and set your own colors for each event.
+You can add your own search string to highlight in the log.
 -->
 
 <!--
@@ -76,16 +78,26 @@ DEVICES="yes"
 NETWORK="yes"
 LOGIN="yes"
 EMHTTP="yes"
-ERRORS_CLR="IndianRed"
-MINOR_ISSUES_CLR="Orange"
-LIME_TECH_CLR="Lime"
-ARRAY_CLR="MediumSeaGreen"
+OTHER="no"
+ERRORS_CLR="Salmon"
+MINOR_ISSUES_CLR="LemonChiffon"
+LIME_TECH_CLR="GreenYellow"
+ARRAY_CLR="MediumSpringGreen"
 SYSTEM_CLR="Magenta"
 FILE_SYSTEM_CLR="LightGray"
-DEVICES_CLR="Teal"
-NETWORK_CLR="MediumPurple"
-LOGIN_CLR="Olive"
-EMHTTP_CLR="MediumSlateBlue"
+DEVICES_CLR="LightSteelBlue"
+NETWORK_CLR="Violet"
+LOGIN_CLR="PaleGreen"
+EMHTTP_CLR="Aqua"
+OTHER_CLR="AliceBlue"
+]]>
+</INLINE>
+</FILE>
+
+<FILE Name="/boot/config/plugins/&name;/custom_syslog.conf">
+<INLINE>
+<![CDATA[
+"Recycle Bin", "other"
 ]]>
 </INLINE>
 </FILE>

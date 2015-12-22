@@ -1,0 +1,89 @@
+Menu="SyslogSettings"
+Title="Syslog Colors"
+---
+<?PHP
+/* Copyright 2015, Dan Landon.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+?>
+
+<?PHP
+$enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
+?>
+
+<table class="tablesorter shift ups">
+<thead><tr><th>Colors</th></tr></thead>
+</table>
+
+<div style="width: 60%; float:left">
+	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
+	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
+	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/cssref/css_colors_group.asp" target="_blank" title="Color Selection Chart"> <u>Color Selection Chart</u></a></span>
+
+	'Error' Highlight Color:
+	: <input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ERRORS_CLR'];?>">
+
+	> Color to use for 'Error' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Minor Issues' Highlight Color:
+	: <input type="text" name="MINOR_ISSUES_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['MINOR_ISSUES_CLR'];?>">
+
+	> Color to use for 'Minor Issues' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Lime Tech' Highlight Color:
+	: <input type="text" name="LIME_TECH_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['LIME_TECH_CLR'];?>">
+
+	> Color to use for 'Lime Tech' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Array' Highlight Color:
+	: <input type="text" name="ARRAY_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ARRAY_CLR'];?>">
+
+	> Color to use for 'Array' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'System' Highlight Color:
+	: <input type="text" name="SYSTEM_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['SYSTEM_CLR'];?>">
+
+	> Color to use for 'System' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'File System' Highlight Color:
+	: <input type="text" name="FILE_SYSTEM_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['FILE_SYSTEM_CLR'];?>">
+
+	> Color to use for 'File System' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Devices' Highlight Color
+	: <input type="text" name="DEVICES_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['DEVICES_CLR'];?>">
+
+	> Color to use for 'Devices' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Network' Highlight Color
+	: <input type="text" name="NETWORK_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['NETWORK_CLR'];?>">
+
+	> Color to use for 'Network' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Login' Highlight Color
+	: <input type="text" name="LOGIN_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['LOGIN_CLR'];?>">
+
+	> Color to use for 'Login' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'emhttp' Highlight Color
+	: <input type="text" name="EMHTTP_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['EMHTTP_CLR'];?>">
+
+	> Color to use for 'emhttp' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	'Other' Highlight Color
+	: <input type="text" name="OTHER_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['OTHER_CLR'];?>">
+
+	> Color to use for 'Other' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
+	<input type="submit" name="#default" value="Default">
+	: <input type="submit" name="#apply" value="Apply"><input type="button" value="Done" onclick="done()">
+
+	> 'Default' resets the Configuration and Colors.  Click 'Apply' to save your changes.  Click 'Done' when you are finished with your changes.
+	</form>
+</div>

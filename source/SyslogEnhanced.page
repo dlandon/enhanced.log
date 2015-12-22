@@ -21,7 +21,9 @@ Icon="enhanced.log.png"
 $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi').".zip";
 
 /* Array of strings and highlight colors - "search string", "background color", "font color". */
-$search = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog.conf'));
+$pre_defined = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog.conf'));
+$custom = array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
+$search = array_merge($pre_defined, $custom);
 
 /* Assign colors from configuration file. */
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
@@ -30,72 +32,79 @@ echo "<pre class='up'>";
 echo "<font size='3'>";
 if ($enhanced_log_cfg['ERRORS'] == "yes") {
 	$errors_color = $enhanced_log_cfg['ERRORS_CLR'];
-   	echo "<font style='background-color:$errors_color'> Errors </font>&nbsp;"; /* red */
+   	echo "<font style='background-color:$errors_color'> Errors </font>&nbsp;";
 } else {
 	$errors_color = "";
 }
 
 if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
 	$minor_issues_color = $enhanced_log_cfg['MINOR_ISSUES_CLR'];
-	echo "<font style='background-color:$minor_issues_color'> Minor Issues </font>&nbsp;"; /* orange */
+	echo "<font style='background-color:$minor_issues_color'> Minor Issues </font>&nbsp;";
 } else {
 	$minor_issues_color = "";
 }
 
 if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
 	$lime_tech_color = $enhanced_log_cfg['LIME_TECH_CLR'];
-	echo "<font style='background-color:$lime_tech_color'> Lime Tech </font>&nbsp;"; /* lime */
+	echo "<font style='background-color:$lime_tech_color'> Lime Tech </font>&nbsp;";
 } else {
 	$lime_tech_color = "";
 }
 
 if ($enhanced_log_cfg['ARRAY'] == "yes") {
 	$array_color = $enhanced_log_cfg['ARRAY_CLR'];
-	echo "<font style='background-color:$array_color'> Array </font>&nbsp;"; /* green */
+	echo "<font style='background-color:$array_color'> Array </font>&nbsp;";
 } else {
 	$array_color = "";
 }
 
 if ($enhanced_log_cfg['SYSTEM'] == "yes") {
 	$system_color = $enhanced_log_cfg['SYSTEM_CLR'];
-	echo "<font style='background-color:$system_color'> System </font>&nbsp;"; /* blue */
+	echo "<font style='background-color:$system_color'> System </font>&nbsp;";
 } else {
 	$system_color = "";
 }
 
 if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
 	$file_system_color = $enhanced_log_cfg['FILE_SYSTEM_CLR'];
-	echo "<font style='background-color:$file_system_color'> File System </font>&nbsp;"; /* gray */
+	echo "<font style='background-color:$file_system_color'> File System </font>&nbsp;";
 } else {
 	$file_system_color = "";
 }
 
 if ($enhanced_log_cfg['DEVICES'] == "yes") {
 	$devices_color = $enhanced_log_cfg['DEVICES_CLR'];
-	echo "<font style='background-color:$devices_color'> Devices </font>&nbsp;"; /* teal */
+	echo "<font style='background-color:$devices_color'> Devices </font>&nbsp;";
 } else {
 	$devices_color = "";
 }
 
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
 	$network_color = $enhanced_log_cfg['NETWORK_CLR'];
-	echo "<font style='background-color:$network_color'> Network </font>&nbsp;"; /* purple */
+	echo "<font style='background-color:$network_color'> Network </font>&nbsp;";
 } else {
 	$network_color = "";
 }
 
 if ($enhanced_log_cfg['LOGIN'] == "yes") {
 	$login_color = $enhanced_log_cfg['LOGIN_CLR'];
-	echo "<font style='background-color:$login_color'> Login </font>&nbsp;"; /* olive */
+	echo "<font style='background-color:$login_color'> Login </font>&nbsp;";
 } else {
 	$login_color = "";
 }
 
 if ($enhanced_log_cfg['EMHTTP'] == "yes") {
 	$emhttp_color = $enhanced_log_cfg['EMHTTP_CLR'];
-	echo "<font style='background-color:$emhttp_color'> emhttp </font>&nbsp;"; /* navy */
+	echo "<font style='background-color:$emhttp_color'> emhttp </font>&nbsp;";
 } else {
 	$emhttp_color = "";
+}
+
+if ($enhanced_log_cfg['OTHER'] == "yes") {
+	$other_color = $enhanced_log_cfg['OTHER_CLR'];
+	echo "<font style='background-color:$other_color'> Other </font>&nbsp;";
+} else {
+	$other_color = "";
 }
 
 /* Adjust array colors. */
@@ -131,6 +140,9 @@ foreach ($search as $s) {
 			break;
 		case ($s[1] == "emhttp"):
 			$search[$i][1] = $emhttp_color;
+			break;
+		case ($s[1] == "other"):
+			$search[$i][1] = $other_color;
 			break;
 		default:
 			break;			
