@@ -27,110 +27,110 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 echo "<pre class='up'>";
 echo "<font size='3'>";
 if ($enhanced_log_cfg['ERRORS'] == "yes") {
-	echo "<font style='background-color:red' color='white'> Errors </font>&nbsp;";
+   	echo "<font style='background-color:#FFBABA'> Errors </font>&nbsp;"; /* red */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "red") {
+		if ($s[1] == "#FFBABA") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
-	echo "<font style='background-color:orange' color='black'> Minor Issues </font>&nbsp;";
+	echo "<font style='background-color:#FEEFB3'> Minor Issues </font>&nbsp;"; /* orange */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "orange") {
+		if ($s[1] == "#FEEFB3") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
-	echo "<font style='background-color:lime' color='black'> Lime Tech </font>&nbsp;";
+	echo "<font style='background-color:#41A317'> Lime Tech </font>&nbsp;"; /* lime */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "lime") {
+		if ($s[1] == "#41A317") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['ARRAY'] == "yes") {
-	echo "<font style='background-color:green' color='white'> Array </font>&nbsp;";
+	echo "<font style='background-color:#00FF00'> Array </font>&nbsp;"; /* green */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "green") {
+		if ($s[1] == "#00FF00") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['SYSTEM'] == "yes") {
-	echo "<font style='background-color:blue' color='white'> System </font>&nbsp;";
+	echo "<font style='background-color:#ADD8E6'> System </font>&nbsp;"; /* blue */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "blue") {
+		if ($s[1] == "#ADD8E6") {
 			$search[$i][1] = "";
-		}
+		} 
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
-	echo "<font style='background-color:gray' color='white'> File System </font>&nbsp;";
+	echo "<font style='background-color:#B6B6B4'> File System </font>&nbsp;"; /* gray */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "gray") {
+		if ($s[1] == "#B6B6B4") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['DEVICES'] == "yes") {
-	echo "<font style='background-color:teal' color='white'> Devices </font>&nbsp;";
+	echo "<font style='background-color:#4E8975'> Devices </font>&nbsp;"; /* teal */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "teal") {
+		if ($s[1] == "#4E8975") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
-	echo "<font style='background-color:purple' color='white'> Network </font>&nbsp;";
+	echo "<font style='background-color:#FF00FF'> Network </font>&nbsp;"; /* purple #8E35EF*/
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "purple") {
+		if ($s[1] == "#FF00FF") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['LOGIN'] == "yes") {
-	echo "<font style='background-color:olive' color='white'> Login </font>&nbsp;";
+	echo "<font style='background-color:#728C00'> Login </font>&nbsp;"; /* olive */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "olive") {
+		if ($s[1] == "#728C00") {
 			$search[$i][1] = "";
 		}
 		$i++;
 	}
 }
 if ($enhanced_log_cfg['EMHTTP'] == "yes") {
-	echo "<font style='background-color:navy' color='white'> emhttp </font>&nbsp;";
+	echo "<font style='background-color:#6698FF'> emhttp </font>&nbsp;"; /* navy */
 } else {
 	$i = 0;
 	foreach ($search as $s) {
-		if ($s[1] == "navy") {
+		if ($s[1] == "#6698FF") {
 			unset($search[$i]);
 		}
 		$i++;
@@ -150,8 +150,8 @@ foreach (file('/var/log/syslog') as $line) {
 		$i++;
 	}
 
-	if ($found_it) {
-		echo "<font style='background-color:".$search[$i][1]."'; color=".$search[$i][2].">$line</font>";
+	if (($found_it) && ($s[1] !== "skip")) {
+		echo "<font style='background-color:".$search[$i][1]."';>$line</font>";
 	} else {
 		echo $line;
 	}
