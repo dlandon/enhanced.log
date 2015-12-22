@@ -22,120 +22,122 @@ $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi')."
 
 /* Array of strings and highlight colors - "search string", "background color", "font color". */
 $search = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog.conf'));
+
+/* Assign colors from configuration file. */
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 
 echo "<pre class='up'>";
 echo "<font size='3'>";
 if ($enhanced_log_cfg['ERRORS'] == "yes") {
-   	echo "<font style='background-color:#FFBABA'> Errors </font>&nbsp;"; /* red */
+	$errors_color = $enhanced_log_cfg['ERRORS_CLR'];
+   	echo "<font style='background-color:$errors_color'> Errors </font>&nbsp;"; /* red */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#FFBABA") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$errors_color = "";
 }
+
 if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
-	echo "<font style='background-color:#FEEFB3'> Minor Issues </font>&nbsp;"; /* orange */
+	$minor_issues_color = $enhanced_log_cfg['MINOR_ISSUES_CLR'];
+	echo "<font style='background-color:$minor_issues_color'> Minor Issues </font>&nbsp;"; /* orange */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#FEEFB3") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$minor_issues_color = "";
 }
+
 if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
-	echo "<font style='background-color:#41A317'> Lime Tech </font>&nbsp;"; /* lime */
+	$lime_tech_color = $enhanced_log_cfg['LIME_TECH_CLR'];
+	echo "<font style='background-color:$lime_tech_color'> Lime Tech </font>&nbsp;"; /* lime */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#41A317") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$lime_tech_color = "";
 }
+
 if ($enhanced_log_cfg['ARRAY'] == "yes") {
-	echo "<font style='background-color:#00FF00'> Array </font>&nbsp;"; /* green */
+	$array_color = $enhanced_log_cfg['ARRAY_CLR'];
+	echo "<font style='background-color:$array_color'> Array </font>&nbsp;"; /* green */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#00FF00") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$array_color = "";
 }
+
 if ($enhanced_log_cfg['SYSTEM'] == "yes") {
-	echo "<font style='background-color:#ADD8E6'> System </font>&nbsp;"; /* blue */
+	$system_color = $enhanced_log_cfg['SYSTEM_CLR'];
+	echo "<font style='background-color:$system_color'> System </font>&nbsp;"; /* blue */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#ADD8E6") {
-			$search[$i][1] = "";
-		} 
-		$i++;
-	}
+	$system_color = "";
 }
+
 if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
-	echo "<font style='background-color:#B6B6B4'> File System </font>&nbsp;"; /* gray */
+	$file_system_color = $enhanced_log_cfg['FILE_SYSTEM_CLR'];
+	echo "<font style='background-color:$file_system_color'> File System </font>&nbsp;"; /* gray */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#B6B6B4") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$file_system_color = "";
 }
+
 if ($enhanced_log_cfg['DEVICES'] == "yes") {
-	echo "<font style='background-color:#4E8975'> Devices </font>&nbsp;"; /* teal */
+	$devices_color = $enhanced_log_cfg['DEVICES_CLR'];
+	echo "<font style='background-color:$devices_color'> Devices </font>&nbsp;"; /* teal */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#4E8975") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$devices_color = "";
 }
+
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
-	echo "<font style='background-color:#FF00FF'> Network </font>&nbsp;"; /* purple #8E35EF*/
+	$network_color = $enhanced_log_cfg['NETWORK_CLR'];
+	echo "<font style='background-color:$network_color'> Network </font>&nbsp;"; /* purple */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#FF00FF") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$network_color = "";
 }
+
 if ($enhanced_log_cfg['LOGIN'] == "yes") {
-	echo "<font style='background-color:#728C00'> Login </font>&nbsp;"; /* olive */
+	$login_color = $enhanced_log_cfg['LOGIN_CLR'];
+	echo "<font style='background-color:$login_color'> Login </font>&nbsp;"; /* olive */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#728C00") {
-			$search[$i][1] = "";
-		}
-		$i++;
-	}
+	$login_color = "";
 }
+
 if ($enhanced_log_cfg['EMHTTP'] == "yes") {
-	echo "<font style='background-color:#6698FF'> emhttp </font>&nbsp;"; /* navy */
+	$emhttp_color = $enhanced_log_cfg['EMHTTP_CLR'];
+	echo "<font style='background-color:$emhttp_color'> emhttp </font>&nbsp;"; /* navy */
 } else {
-	$i = 0;
-	foreach ($search as $s) {
-		if ($s[1] == "#6698FF") {
-			unset($search[$i]);
-		}
-		$i++;
-	}
+	$emhttp_color = "";
 }
+
+/* Adjust array colors. */
+$i = 0;
+foreach ($search as $s) {
+	switch ($s[1]) {
+		case ($s[1] == "error"):
+			$search[$i][1] = $errors_color;
+			break;
+		case ($s[1] == "minor issue"):
+			$search[$i][1] = $minor_issues_color;
+			break;
+		case ($s[1] == "lime tech"):
+			$search[$i][1] = $lime_tech_color;
+			break;
+		case ($s[1] == "array"):
+			$search[$i][1] = $array_color;
+			break;
+		case ($s[1] == "system"):
+			$search[$i][1] = $system_color;
+			break;
+		case ($s[1] == "file system"):
+			$search[$i][1] = $file_system_color;
+			break;
+		case ($s[1] == "devices"):
+			$search[$i][1] = $devices_color;
+			break;
+		case ($s[1] == "network"):
+			$search[$i][1] = $network_color;
+			break;
+		case ($s[1] == "login"):
+			$search[$i][1] = $login_color;
+			break;
+		case ($s[1] == "emhttp"):
+			$search[$i][1] = $emhttp_color;
+			break;
+		default:
+			break;			
+	}
+	$i++;
+}
+
 echo "</font><br/><br/>";
 
 echo "<div style='height:650px;width:1245px;border:2px solid #ccc;overflow:auto;'>";

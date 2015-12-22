@@ -23,9 +23,10 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 <thead><tr><th>Settings</th></tr></thead>
 </table>
 
-<div style="width: 55%; float:left">
+<div style="width: 100%; float:left">
 	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
+	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/cssref/css_colornames.asp" target="_blank" title="Color Selection Chart"> <u>Color Selection Chart</u></a></span>
 
 	Enable 'Error' Highlighting?
 	: <select name="ERRORS" size="1">
@@ -35,6 +36,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Set to 'Yes' to enable 'Errors' highlighting in the enhanced log.
 
+	'Error' Color:
+	: <input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ERRORS_CLR'];?>">
+
+	> Color to use for 'Error' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
 	Enable 'Minor Issues' Highlighting?
 	: <select name="MINOR_ISSUES" size="1">
 		<?=mk_option($enhanced_log_cfg['MINOR_ISSUES'], "yes", "Yes");?>
@@ -42,6 +48,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 	> Set to 'Yes' to enable 'Minor Issues' highlighting in the enhanced log.
+
+	'Minor Issues' Color:
+	: <input type="text" name="MINOR_ISSUES_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['MINOR_ISSUES_CLR'];?>">
+
+	> Color to use for 'Minor Issues' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
 	Enable 'Lime Tech' Highlighting?
 	: <select name="LIME_TECH" size="1">
@@ -51,6 +62,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Set to 'Yes' to enable 'Lime Tech' highlighting in the enhanced log.
 
+	'Lime Tech' Color:
+	: <input type="text" name="LIME_TECH_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['LIME_TECH_CLR'];?>">
+
+	> Color to use for 'Lime Tech' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
 	Enable 'Array' Highlighting?
 	: <select name="ARRAY" size="1">
 		<?=mk_option($enhanced_log_cfg['ARRAY'], "yes", "Yes");?>
@@ -58,6 +74,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 	> Set to 'Yes' to enable 'Array' highlighting in the enhanced log.
+
+	'Array' Color:
+	: <input type="text" name="ARRAY_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ARRAY_CLR'];?>">
+
+	> Color to use for 'Array' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
 	Enable 'System' Highlighting?
 	: <select name="SYSTEM" size="1">
@@ -67,6 +88,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Set to 'Yes' to enable 'System' highlighting in the enhanced log.
 
+	'System' Color:
+	: <input type="text" name="SYSTEM_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['SYSTEM_CLR'];?>">
+
+	> Color to use for 'System' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
 	Enable 'File System' Highlighting?
 	: <select name="FILE_SYSTEM" size="1">
 		<?=mk_option($enhanced_log_cfg['FILE_SYSTEM'], "yes", "Yes");?>
@@ -74,6 +100,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 	> Set to 'Yes' to enable 'File System' highlighting in the enhanced log.
+
+	'File System' Color:
+	: <input type="text" name="FILE_SYSTEM_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['FILE_SYSTEM_CLR'];?>">
+
+	> Color to use for 'File System' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
 	Enable 'Devices' Highlighting?
 	: <select name="DEVICES" size="1">
@@ -83,6 +114,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Set to 'Yes' to enable 'Devices' highlighting in the enhanced log.
 
+	'Devices' Color:
+	: <input type="text" name="DEVICES_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['DEVICES_CLR'];?>">
+
+	> Color to use for 'Devices' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
 	Enable 'Network' Highlighting?
 	: <select name="NETWORK" size="1">
 		<?=mk_option($enhanced_log_cfg['NETWORK'], "yes", "Yes");?>
@@ -90,6 +126,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 	> Set to 'Yes' to enable 'Network' highlighting in the enhanced log.
+
+	'Network' Color:
+	: <input type="text" name="NETWORK_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['NETWORK_CLR'];?>">
+
+	> Color to use for 'Network' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
 	Enable 'Login' Highlighting?
 	: <select name="LOGIN" size="1">
@@ -99,6 +140,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Set to 'Yes' to enable 'Login' highlighting in the enhanced log.
 
+	'Login' Color:
+	: <input type="text" name="LOGIN_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['LOGIN_CLR'];?>">
+
+	> Color to use for 'Login' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+
 	Enable 'emhttp' Highlighting?
 	: <select name="EMHTTP" size="1">
 		<?=mk_option($enhanced_log_cfg['EMHTTP'], "yes", "Yes");?>
@@ -106,6 +152,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 	> Set to 'Yes' to enable 'emhttp' highlighting in the enhanced log.
+
+	'emhttp' Color:
+	: <input type="text" name="EMHTTP_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['EMHTTP_CLR'];?>">
+
+	> Color to use for 'emhttp' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
 	<input type="submit" name="#default" value="Default">
 	: <input type="submit" name="#apply" value="Apply"><input type="button" value="Done" onclick="done()">
