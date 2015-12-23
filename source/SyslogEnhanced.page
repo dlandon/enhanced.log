@@ -20,13 +20,19 @@ Icon="enhanced.log.png"
 <?
 $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi').".zip";
 
-/* Array of strings and highlight colors - "search string", "background color", "font color". */
-$pre_defined = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog_match.conf'));
-$custom = array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
-$match = array_merge($pre_defined, $custom);
-
-/* Assign colors from configuration file. */
+/* Assign events and colors from configuration file. */
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
+
+/* Array of strings and highlight colors - "match string", "event". */
+$pre_defined = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog_match.conf'));
+if ($enhanced_log_cfg['OTHER'] == "yes") {
+	$custom = array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
+	$match = array_merge($pre_defined, $custom);
+} else {
+	$match = array_merge($pre_defined);
+}
+unset($pre_defined);
+unset($custom);
 
 echo "<pre class='up'>";
 echo "<font size='3'>";
