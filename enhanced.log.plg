@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2015.12.23a">
+<!ENTITY version    "2015.12.23b">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"447eeca3e558cb7838d4294256be78e2">
+<!ENTITY MD5		"057fdfe02a540d9a361cbf06f2ce3d75">
 ]>
 
 <PLUGIN  name="&name;"
@@ -95,7 +95,7 @@ DEVICES_CLR="LightSteelBlue"
 NETWORK_CLR="Violet"
 LOGIN_CLR="PaleGreen"
 EMHTTP_CLR="Aqua"
-OTHER_CLR="AliceBlue"
+OTHER_CLR="PowderBlue"
 ]]>
 </INLINE>
 </FILE>
