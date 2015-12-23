@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2015.12.22b">
+<!ENTITY version    "2015.12.23">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"f2573db14db0abdbc6d90a419e7a6b12">
+<!ENTITY MD5		"5d5a47728f421a46b8659682f0701f6d">
 ]>
 
 <PLUGIN  name="&name;"
@@ -33,6 +33,12 @@ The 'pre-install' script.
 -->
 <FILE Run="/bin/bash">
 <INLINE>
+source /etc/unraid-version
+if [[ ${version:0:3} == 6.0 ]]; then
+  echo "unRAID version 6.1 or higher is required"
+  exit 1
+fi
+
 # Remove emhttp files so we can re-install.
 rm -rf /usr/local/emhttp/plugins/&name;/* 2>/dev/null
 

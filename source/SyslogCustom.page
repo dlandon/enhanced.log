@@ -13,13 +13,17 @@ Title="Custom Syslog Match"
  */
 ?>
 
+<table class="tablesorter shift ups">
+<thead><tr><th>Custom</th></tr></thead>
+</table>
+
 > Enter any custom events you want highlighted in the log.  Any custom events you enter will be processed after the built in events.
 > The events are entered as: "search string", "event"
 > Case is ignored in the search string and wild cards are allowed.
 > Examples:
 > "found.*chip" will match any string with 'found' and 'chip' with any text in between,
 > "(spinup|spindown)" will match any string with either 'spinup' or 'spindown'. 
-> The search string and event are quoted, and each event is on one line only.
+> The search string and event are quoted, and each line contains one match string and event combination.
 > Events are: "error", "minor issues", "lime tech", "array", "system", "file system", "devices", "network", "login", "emhttp", "other".
  
 <?
