@@ -192,7 +192,7 @@ function getlog() {
   });
 }
 $(function() {
-  $('pre.up').css('height',Math.max(screen.height-380,380)).show();
+  $('pre.up').css('height',Math.max(window.innerHeight-280,370)).show();
 });
 <?if ($other_color!=""):?>
 	$('.tabs').append("<span class='status'><span><?=$other_tag?></span>");
