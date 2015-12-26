@@ -56,10 +56,10 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Color to use for 'File System' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
-	'Devices' Highlight Color
-	: <input type="text" name="DEVICES_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['DEVICES_CLR'];?>">
+	'Drive Related' Highlight Color
+	: <input type="text" name="DRIVE_RELATED_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['DRIVE_RELATED_CLR'];?>">
 
-	> Color to use for 'Devices' highlighting.  You can use the color name or number.  The color number begins with a '#'.
+	> Color to use for 'Drive Related' highlighting.  You can use the color name or number.  The color number begins with a '#'.
 
 	'Network' Highlight Color
 	: <input type="text" name="NETWORK_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['NETWORK_CLR'];?>">

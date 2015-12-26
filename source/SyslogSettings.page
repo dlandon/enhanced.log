@@ -27,6 +27,14 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
 
+	Show All Lines in Log?
+	: <select name="TEXT" size="1">
+		<?=mk_option($enhanced_log_cfg['TEXT'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['TEXT'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to show all lines in the enhanced log.  Set to 'No' to show only highlighted lines.
+
 	Enable 'Error' Highlighting?
 	: <select name="ERRORS" size="1">
 		<?=mk_option($enhanced_log_cfg['ERRORS'], "yes", "Yes");?>
@@ -75,13 +83,13 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	> Set to 'Yes' to enable 'File System' highlighting in the enhanced log.
 
-	Enable 'Devices' Highlighting?
-	: <select name="DEVICES" size="1">
-		<?=mk_option($enhanced_log_cfg['DEVICES'], "yes", "Yes");?>
-		<?=mk_option($enhanced_log_cfg['DEVICES'], "no", "No");?>
+	Enable 'Drive Related' Highlighting?
+	: <select name="DRIVE_RELATED" size="1">
+		<?=mk_option($enhanced_log_cfg['DRIVE_RELATED'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['DRIVE_RELATED'], "no", "No");?>
 	  </select>
 
-	> Set to 'Yes' to enable 'Devices' highlighting in the enhanced log.
+	> Set to 'Yes' to enable 'Drive Related' highlighting in the enhanced log.
 
 	Enable 'Network' Highlighting?
 	: <select name="NETWORK" size="1">

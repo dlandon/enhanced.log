@@ -76,11 +76,11 @@ if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
 	$file_system_color = "";
 }
 
-if ($enhanced_log_cfg['DEVICES'] == "yes") {
-	$devices_color = $enhanced_log_cfg['DEVICES_CLR'];
-	$devices_tag = "<font size='3' style='background-color:$devices_color'>&nbsp;Devices&nbsp;</font>";
+if ($enhanced_log_cfg['DRIVE_RELATED'] == "yes") {
+	$drive_related_color = $enhanced_log_cfg['DRIVE_RELATED_CLR'];
+	$drive_related_tag = "<font size='3' style='background-color:$drive_related_color'>&nbsp;Drive Related&nbsp;</font>";
 } else {
-	$devices_color = "";
+	$drive_related_color = "";
 }
 
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
@@ -133,8 +133,8 @@ foreach ($match as $s) {
 		case ($s[1] == "file system"):
 			$match[$i][1] = $file_system_color;
 			break;
-		case ($s[1] == "devices"):
-			$match[$i][1] = $devices_color;
+		case ($s[1] == "drive related"):
+			$match[$i][1] = $drive_related_color;
 			break;
 		case ($s[1] == "network"):
 			$match[$i][1] = $network_color;
@@ -168,7 +168,7 @@ foreach (file('/var/log/syslog') as $line) {
 
 	if (($found_it) && ($s[1] !== "skip")) {
 		echo "<font style='background-color:".$match[$i][1]."';>$line</font>";
-	} else {
+	} elseif ($enhanced_log_cfg['TEXT'] == "yes") {
 		echo $line;
 	}
 }
@@ -206,8 +206,8 @@ $(function() {
 <?if ($network_color!=""):?>
 	$('.tabs').append("<span class='status'><span><?=$network_tag?></span>");
 <?endif;?>
-<?if ($devices_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$devices_tag?></span>");
+<?if ($drive_related_color!=""):?>
+	$('.tabs').append("<span class='status'><span><?=$drive_related_tag?></span>");
 <?endif;?>
 <?if ($file_system_color!=""):?>
 	$('.tabs').append("<span class='status'><span><?=$file_system_tag?></span>");

@@ -23,8 +23,8 @@ Title="Custom Syslog Match"
 > Examples:
 > "found.*chip" will match any string with 'found' and 'chip' with any text in between,
 > "(spinup|spindown)" will match any string with either 'spinup' or 'spindown'. 
-> The search string and event are quoted, and each line contains one match string and event combination.
-> Events are: "error", "minor issues", "lime tech", "array", "system", "file system", "devices", "network", "login", "emhttp", "other".
+> The search string and event are quoted, and each line contains one match string and event combination.  Errors in the strings can cause php errors.
+> Events are: "error", "minor issues", "lime tech", "array", "system", "file system", "drive related", "network", "login", "emhttp", "other".
  
 <?
 $file = "/boot/config/plugins/enhanced.log/custom_syslog.conf";
