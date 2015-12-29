@@ -6,7 +6,7 @@
 <!ENTITY version    "2015.12.29">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"c98a64a2557c1df99f9c2efaf6371049">
+<!ENTITY MD5		"4529b326d5e4b531f2191a4ed9ec21bc">
 ]>
 
 <PLUGIN  name="&name;"
