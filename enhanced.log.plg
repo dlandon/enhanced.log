@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2016.01.05">
+<!ENTITY version    "2016.01.12">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"adc6b26e7dbc6f2a53600b05394002cb">
+<!ENTITY MD5		"dc327621e49fe29437ea49605b5201bc">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fixed match strings order - "checksumming" before "checksum".
+
+###2016.01.05
 - Fixed false positives - "dev error handler" and "not tainted".
 
 ###2015.01.04
