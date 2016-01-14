@@ -3,7 +3,7 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2016.01.12">
+<!ENTITY version    "2016.01.14">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY MD5		"34ec65e3fcf4509a95e338f073153996">
