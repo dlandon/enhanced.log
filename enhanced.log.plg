@@ -6,7 +6,7 @@
 <!ENTITY version    "2016.01.12">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"dc327621e49fe29437ea49605b5201bc">
+<!ENTITY MD5		"34ec65e3fcf4509a95e338f073153996">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fixed match strings causing false positives related to pre-clear messages.
+
+###2016.01.12
 - Fixed match strings order - "checksumming" before "checksum".
 
 ###2016.01.05
