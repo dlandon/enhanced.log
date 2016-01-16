@@ -154,7 +154,7 @@ foreach ($match as $s) {
 	$i++;
 }
 
-echo "<pre class='up' style='display:none'>";
+echo $display['resize'] ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
 foreach (file('/var/log/syslog') as $line) {
 	$found_it = false;
 	$i = 0;
@@ -191,9 +191,15 @@ function getlog() {
     setTimeout(cleanUp,4000);
   });
 }
+<?if ($display['resize']):?>
+function resize() {
+  $('pre.up').height(Math.max(window.innerHeight-280,370)).show();
+}
 $(function() {
-  $('pre.up').css('height',Math.max(window.innerHeight-280,370)).show();
+  resize();
+  $(window).bind('resize',function(){resize();});
 });
+<?endif;?>
 <?if ($other_color!=""):?>
 	$('.tabs').append("<span class='status'><span><?=$other_tag?></span>");
 <?endif;?>

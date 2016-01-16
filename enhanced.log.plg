@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2016.01.14">
+<!ENTITY version    "2016.01.16">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"34ec65e3fcf4509a95e338f073153996">
+<!ENTITY MD5		"20d6d2c8029a9546a73b298e5df48f12">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Compatibility with unRAID 6.1.7.
+
+###2016.01.14
 - Fixed match strings causing false positives related to pre-clear messages.
 
 ###2016.01.12
