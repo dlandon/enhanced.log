@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2016.01.21">
+<!ENTITY version    "2016.09.06">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"c737a2e4086421ea59329b2a532488a8">
+<!ENTITY MD5		"7b63c0a70962b2a199676b0d43dad97a">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fixed broken link to html color chart.
+
+###2016.01.21
 - Fixed match string causing false positive "killer".
 
 ###2016.01.16

@@ -24,7 +24,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 <div style="width: 60%; float:left">
 	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
-	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/cssref/css_colors_group.asp" target="_blank" title="Color Selection Chart"> <u>Color Selection Chart</u></a></span>
+	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank" title="Color Selection Chart"> <u>Color Selection Chart</u></a></span>
 
 	'Error' Highlight Color:
 	: <input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ERRORS_CLR'];?>">
