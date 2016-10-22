@@ -4,9 +4,9 @@ Title="System Log"
 Icon="enhanced.log.png"
 ---
 <?PHP
-/* Copyright 2015, Lime Technology
- * Copyright 2015, Bergware International.
- * Copyright 2015, Dan Landon
+/* Copyright 2015-2016, Lime Technology
+ * Copyright 2015-2016, Bergware International.
+ * Copyright 2015-2016, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -24,7 +24,7 @@ $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi')."
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 
 /* Array of strings and highlight colors - "match string", "event". */
-$pre_defined = array_map('str_getcsv', file('/usr/local/emhttp/plugins/enhanced.log/syslog_match.conf'));
+$pre_defined = array_map('str_getcsv', file('plugins/enhanced.log/syslog_match.conf'));
 if ($enhanced_log_cfg['OTHER'] == "yes") {
 	$custom = array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
 	$match = array_merge($pre_defined, $custom);

@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2016.09.06">
+<!ENTITY version    "2016.10.22">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"7b63c0a70962b2a199676b0d43dad97a">
+<!ENTITY MD5		"8dead349d2402401333090eb110ea75d">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Updates for compatibility with unRAID 6.2 and later.
+
+###2016.09.06
 - Fixed broken link to html color chart.
 
 ###2016.01.21
