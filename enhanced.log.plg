@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2016.10.22">
+<!ENTITY version    "2017.02.19">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"8dead349d2402401333090eb110ea75d">
+<!ENTITY MD5		"0789381e81580105861f1378af18f76b">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Replace the built-in Syslog with the enhanced Syslog.
+
+###2016.10.22
 - Updates for compatibility with unRAID 6.2 and later.
 
 ###2016.09.06
@@ -139,10 +142,15 @@ The 'post-install' script.
 -->
 <FILE Run="/bin/bash">
 <INLINE>
+# Rename original Dynamix page
+if [[ -e /usr/local/emhttp/plugins/dynamix/Syslog.page ]]; then
+  mv -f /usr/local/emhttp/plugins/dynamix/Syslog.page /usr/local/emhttp/plugins/dynamix/Syslog.page-
+fi
+
 echo ""
 echo "-----------------------------------------------------------"
 echo " Plugin &name; is installed."
-echo " Copyright 2015-2016, Dan Landon"
+echo " Copyright 2015-2017, Dan Landon"
 echo " Version: &version;"
 echo "-----------------------------------------------------------"
 echo ""
@@ -157,6 +165,9 @@ The 'remove' script.
 # Remove all plugin files.
 rm -rf /boot/config/plugins/&name; 2>/dev/null
 rm -rf /usr/local/emhttp/plugins/&name; 2>/dev/null
+
+# Restore original Dynamix page
+mv -f /usr/local/emhttp/plugins/dynamix/Syslog.page- /usr/local/emhttp/plugins/dynamix/Syslog.page
 
 echo ""
 echo "-----------------------------------------------------------"

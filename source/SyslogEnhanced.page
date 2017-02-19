@@ -1,12 +1,11 @@
-Menu="SystemInformation"
-Type="xmenu"
+Menu="UNRAID-OS"
 Title="System Log"
 Icon="enhanced.log.png"
 ---
-<?PHP
+<?php
 /* Copyright 2015-2016, Lime Technology
  * Copyright 2015-2016, Bergware International.
- * Copyright 2015-2016, Dan Landon
+ * Copyright 2015-2017, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -15,9 +14,7 @@ Icon="enhanced.log.png"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
-?>
 
-<?
 $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi').".zip";
 
 /* Assign events and colors from configuration file. */
@@ -115,37 +112,37 @@ if ($enhanced_log_cfg['OTHER'] == "yes") {
 $i = 0;
 foreach ($match as $s) {
 	switch ($s[1]) {
-		case ($s[1] == "error"):
+		case ("error"):
 			$match[$i][1] = $errors_color;
 			break;
-		case ($s[1] == "minor issue"):
+		case ("minor issue"):
 			$match[$i][1] = $minor_issues_color;
 			break;
-		case ($s[1] == "lime tech"):
+		case ("lime tech"):
 			$match[$i][1] = $lime_tech_color;
 			break;
-		case ($s[1] == "array"):
+		case ("array"):
 			$match[$i][1] = $array_color;
 			break;
-		case ($s[1] == "system"):
+		case ("system"):
 			$match[$i][1] = $system_color;
 			break;
-		case ($s[1] == "file system"):
+		case ("file system"):
 			$match[$i][1] = $file_system_color;
 			break;
-		case ($s[1] == "drive related"):
+		case ("drive related"):
 			$match[$i][1] = $drive_related_color;
 			break;
-		case ($s[1] == "network"):
+		case ("network"):
 			$match[$i][1] = $network_color;
 			break;
-		case ($s[1] == "login"):
+		case ("login"):
 			$match[$i][1] = $login_color;
 			break;
-		case ($s[1] == "emhttp"):
+		case ("emhttp"):
 			$match[$i][1] = $emhttp_color;
 			break;
-		case ($s[1] == "other"):
+		case ("other"):
 			$match[$i][1] = $other_color;
 			break;
 		default:

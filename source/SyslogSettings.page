@@ -3,8 +3,8 @@ Type="xmenu"
 Title="Syslog Configuration"
 Icon="enhanced.log.png"
 ---
-<?PHP
-/* Copyright 2015-2016, Dan Landon.
+<?php
+/* Copyright 2015-2017, Dan Landon.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -13,9 +13,7 @@ Icon="enhanced.log.png"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
-?>
 
-<?PHP
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 ?>
 
