@@ -1,5 +1,5 @@
-Menu="SyslogSettings"
-Title="Syslog Colors"
+Menu="SyslogSettings:2"
+Title="Colors"
 ---
 <?php
 /* Copyright 2015-2017, Dan Landon.
@@ -16,7 +16,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 ?>
 
 <table class="tablesorter shift ups">
-<thead><tr><th>Colors</th></tr></thead>
+<thead><tr><th>Syslog Colors</th></tr></thead>
 </table>
 
 <div style="width: 60%; float:left">

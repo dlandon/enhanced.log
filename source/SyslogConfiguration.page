@@ -1,0 +1,127 @@
+Menu="SyslogSettings:1"
+Title="Configuration"
+---
+<?php
+/* Copyright 2015-2017, Dan Landon.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+
+$enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
+?>
+
+<table class="tablesorter shift ups">
+<thead><tr><th>Syslog Configuration</th></tr></thead>
+</table>
+
+<div style="width: 60%; float:left">
+	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
+	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
+
+	Show All Lines in Log?
+	: <select name="TEXT" size="1">
+		<?=mk_option($enhanced_log_cfg['TEXT'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['TEXT'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to show all lines in the enhanced log.  Set to 'No' to show only highlighted lines.
+
+	Enable 'Error' Highlighting?
+	: <select name="ERRORS" size="1">
+		<?=mk_option($enhanced_log_cfg['ERRORS'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['ERRORS'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Errors' highlighting in the enhanced log.
+
+	Enable 'Minor Issues' Highlighting?
+	: <select name="MINOR_ISSUES" size="1">
+		<?=mk_option($enhanced_log_cfg['MINOR_ISSUES'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['MINOR_ISSUES'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Minor Issues' highlighting in the enhanced log.
+
+	Enable 'Lime Tech' Highlighting?
+	: <select name="LIME_TECH" size="1">
+		<?=mk_option($enhanced_log_cfg['LIME_TECH'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['LIME_TECH'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Lime Tech' highlighting in the enhanced log.
+
+	Enable 'Array' Highlighting?
+	: <select name="ARRAY" size="1">
+		<?=mk_option($enhanced_log_cfg['ARRAY'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['ARRAY'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Array' highlighting in the enhanced log.
+
+	Enable 'System' Highlighting?
+	: <select name="SYSTEM" size="1">
+		<?=mk_option($enhanced_log_cfg['SYSTEM'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['SYSTEM'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'System' highlighting in the enhanced log.
+
+	Enable 'File System' Highlighting?
+	: <select name="FILE_SYSTEM" size="1">
+		<?=mk_option($enhanced_log_cfg['FILE_SYSTEM'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['FILE_SYSTEM'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'File System' highlighting in the enhanced log.
+
+	Enable 'Drive Related' Highlighting?
+	: <select name="DRIVE_RELATED" size="1">
+		<?=mk_option($enhanced_log_cfg['DRIVE_RELATED'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['DRIVE_RELATED'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Drive Related' highlighting in the enhanced log.
+
+	Enable 'Network' Highlighting?
+	: <select name="NETWORK" size="1">
+		<?=mk_option($enhanced_log_cfg['NETWORK'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['NETWORK'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Network' highlighting in the enhanced log.
+
+	Enable 'Login' Highlighting?
+	: <select name="LOGIN" size="1">
+		<?=mk_option($enhanced_log_cfg['LOGIN'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['LOGIN'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Login' highlighting in the enhanced log.
+
+	Enable 'emhttp' Highlighting?
+	: <select name="EMHTTP" size="1">
+		<?=mk_option($enhanced_log_cfg['EMHTTP'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['EMHTTP'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'emhttp' highlighting in the enhanced log.
+
+	Enable 'Other' Highlighting?
+	: <select name="OTHER" size="1">
+		<?=mk_option($enhanced_log_cfg['OTHER'], "yes", "Yes");?>
+		<?=mk_option($enhanced_log_cfg['OTHER'], "no", "No");?>
+	  </select>
+
+	> Set to 'Yes' to enable 'Other' highlighting in the enhanced log.
+
+	<input type="submit" name="#default" value="Default">
+	: <input type="submit" name="#apply" value="Apply"><input type="button" value="Done" onclick="done()">
+
+	> 'Default' resets the Configuration and Colors.  Click 'Apply' to save your changes.  Click 'Done' when you are finished with your changes.
+	</form>
+</div>

@@ -1,5 +1,5 @@
-Menu="SyslogSettings"
-Title="Custom Syslog Match"
+Menu="SyslogSettings:3"
+Title="Custom Match"
 ---
 <?php
 /* Copyright 2015-2017, Dan Landon
@@ -14,7 +14,7 @@ Title="Custom Syslog Match"
 ?>
 
 <table class="tablesorter shift ups">
-<thead><tr><th>Custom</th></tr></thead>
+<thead><tr><th>Custom Syslog Match</th></tr></thead>
 </table>
 
 > Enter any custom events you want highlighted in the log.  Any custom events you enter will be processed after the built in events.

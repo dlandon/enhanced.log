@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2017.02.19">
+<!ENTITY version    "2017.05.16">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"0789381e81580105861f1378af18f76b">
+<!ENTITY MD5		"73f0f00e0b9b598fcb5b3839139b3631">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Tweak menu tabs.
+
+###2017.02.19
 - Replace the built-in Syslog with the enhanced Syslog.
 
 ###2016.10.22
