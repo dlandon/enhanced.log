@@ -31,79 +31,85 @@ if ($enhanced_log_cfg['OTHER'] == "yes") {
 unset($pre_defined);
 unset($custom);
 
+if ($display['theme'] == 'white' || $display['theme'] == 'black') {
+	$font_size = '10pt';
+} else {
+	$font_size = '14pt';
+}
+
 if ($enhanced_log_cfg['ERRORS'] == "yes") {
 	$errors_color = $enhanced_log_cfg['ERRORS_CLR'];
-	$errors_tag = "<font size=3 style='background-color:$errors_color'>&nbsp;Errors&nbsp;</font>";
+	$errors_tag = "<span style='background-color:$errors_color; font-size: $font_size'>&nbsp;Errors&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$errors_color = "";
 }
 
 if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
 	$minor_issues_color = $enhanced_log_cfg['MINOR_ISSUES_CLR'];
-	$minor_issues_tag = "<font size=3 style='background-color:$minor_issues_color'>&nbspMinor Issues&nbsp</font>";
+	$minor_issues_tag = "<span style='background-color:$minor_issues_color; font-size: $font_size'>&nbspMinor Issues&nbsp</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$minor_issues_color = "";
 }
 
 if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
 	$lime_tech_color = $enhanced_log_cfg['LIME_TECH_CLR'];
-	$lime_tech_tag = "<font size='3' style='background-color:$lime_tech_color'>&nbsp;Lime Tech&nbsp;</font>";
+	$lime_tech_tag = "<span style='background-color:$lime_tech_color; font-size: $font_size'>&nbsp;Lime Tech&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$lime_tech_color = "";
 }
 
 if ($enhanced_log_cfg['ARRAY'] == "yes") {
 	$array_color = $enhanced_log_cfg['ARRAY_CLR'];
-	$array_tag = "<font size='3' style='background-color:$array_color'>&nbsp;Array&nbsp;</font>";
+	$array_tag = "<span style='background-color:$array_color; font-size: $font_size'>&nbsp;Array&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$array_color = "";
 }
 
 if ($enhanced_log_cfg['SYSTEM'] == "yes") {
 	$system_color = $enhanced_log_cfg['SYSTEM_CLR'];
-	$system_tag = "<font size='3' style='background-color:$system_color'>&nbsp;System&nbsp;</font>";
+	$system_tag = "<span style='background-color:$system_color; font-size: $font_size'>&nbsp;System&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$system_color = "";
 }
 
 if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
 	$file_system_color = $enhanced_log_cfg['FILE_SYSTEM_CLR'];
-	$file_system_tag = "<font size='3' style='background-color:$file_system_color'>&nbsp;File System&nbsp;</font>";
+	$file_system_tag = "<span style='background-color:$file_system_color; font-size: $font_size'>&nbsp;File System&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$file_system_color = "";
 }
 
 if ($enhanced_log_cfg['DRIVE_RELATED'] == "yes") {
 	$drive_related_color = $enhanced_log_cfg['DRIVE_RELATED_CLR'];
-	$drive_related_tag = "<font size='3' style='background-color:$drive_related_color'>&nbsp;Drive Related&nbsp;</font>";
+	$drive_related_tag = "<span style='background-color:$drive_related_color; font-size: $font_size'>&nbsp;Drive Related&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$drive_related_color = "";
 }
 
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
 	$network_color = $enhanced_log_cfg['NETWORK_CLR'];
-	$network_tag = "<font size='3'style='background-color:$network_color'>&nbsp;Network&nbsp;</font>";
+	$network_tag = "<span style='background-color:$network_color; font-size: $font_size'>&nbsp;Network&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$network_color = "";
 }
 
 if ($enhanced_log_cfg['LOGIN'] == "yes") {
 	$login_color = $enhanced_log_cfg['LOGIN_CLR'];
-	$login_tag = "<font size='3' style='background-color:$login_color'>&nbsp;Login&nbsp;</font>";
+	$login_tag = "<span style='background-color:$login_color; font-size: $font_size'>&nbsp;Login&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$login_color = "";
 }
 
 if ($enhanced_log_cfg['EMHTTP'] == "yes") {
 	$emhttp_color = $enhanced_log_cfg['EMHTTP_CLR'];
-	$emhttp_tag = "<font size='3' style='background-color:$emhttp_color'>&nbsp;emhttp&nbsp;</font>";
+	$emhttp_tag = "<span style='background-color:$emhttp_color; font-size: $font_size'>&nbsp;emhttp&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$emhttp_color = "";
 }
 
 if ($enhanced_log_cfg['OTHER'] == "yes") {
 	$other_color = $enhanced_log_cfg['OTHER_CLR'];
-	$other_tag = "<font size='3' style='background-color:$other_color'>&nbsp;Other&nbsp;</font>";
+	$other_tag = "<span style='background-color:$other_color; font-size: $font_size'>&nbsp;Other&nbsp;</span>";
 } else {
 	$other_color = "";
 }
@@ -164,7 +170,7 @@ foreach (file('/var/log/syslog') as $line) {
 	}
 
 	if (($found_it) && ($s[1] !== "skip")) {
-		echo "<font style='background-color:".$match[$i][1]."';>$line</font>";
+		echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
 	} elseif ($enhanced_log_cfg['TEXT'] == "yes") {
 		echo $line;
 	}
