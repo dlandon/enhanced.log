@@ -178,6 +178,7 @@ foreach (file('/var/log/syslog') as $line) {
 echo "</pre>";
 
 ?>
+
 <script>
 function cleanUp() {
   if (document.hasFocus()) {
@@ -194,6 +195,7 @@ function getlog() {
     setTimeout(cleanUp,4000);
   });
 }
+
 <?if ($display['resize']):?>
 function resize() {
   $('pre.up').height(Math.max(window.innerHeight-280,370)).show();
@@ -203,38 +205,40 @@ $(function() {
   $(window).bind('resize',function(){resize();});
 });
 <?endif;?>
-<?if ($other_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$other_tag?></span>");
+
+<?if ($other_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$other_tag?></span>");
 <?endif;?>
-<?if ($emhttp_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$emhttp_tag?></span>");
+<?if ($emhttp_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$emhttp_tag?></span>");
 <?endif;?>
-<?if ($login_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$login_tag?></span>");
+<?if ($login_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$login_tag?></span>");
 <?endif;?>
-<?if ($network_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$network_tag?></span>");
+<?if ($network_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$network_tag?></span>");
 <?endif;?>
-<?if ($drive_related_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$drive_related_tag?></span>");
+<?if ($drive_related_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$drive_related_tag?></span>");
 <?endif;?>
-<?if ($file_system_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$file_system_tag?></span>");
+<?if ($file_system_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$file_system_tag?></span>");
 <?endif;?>
-<?if ($system_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$system_tag?></span>");
+<?if ($system_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$system_tag?></span>");
 <?endif;?>
-<?if ($array_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$array_tag?></span>");
+<?if ($array_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$array_tag?></span>");
 <?endif;?>
-<?if ($lime_tech_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$lime_tech_tag?></span>");
+<?if ($lime_tech_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$lime_tech_tag?></span>");
 <?endif;?>
-<?if ($minor_issues_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$minor_issues_tag?></span>");
+<?if ($minor_issues_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$minor_issues_tag?></span>");
 <?endif;?>
-<?if ($errors_color!=""):?>
-	$('.tabs').append("<span class='status'><span><?=$errors_tag?></span>");
+<?if ($errors_color != ""):?>
+	$('.tabs').append("<span class='status'><?=$errors_tag?></span>");
 <?endif;?>
 </script>
+
 <input type="button" value="Download" onclick="getlog()"><input type="button" value="Done" onclick="done()">

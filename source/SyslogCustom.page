@@ -37,7 +37,7 @@ function setDefault(form) {
   form.elements['text'].value = <?=json_encode($default_text);?>;
 }
 </script>
-<div style="width: 45%; float:left">
+<div style="width: 55%; float:left">
 	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
 	<input type="hidden" name="#file" value="<?=$file;?>">
