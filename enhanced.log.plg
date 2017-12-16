@@ -3,10 +3,10 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2017.11.01">
+<!ENTITY version    "2017.12.16">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"51d48c7235094660fd45ad65b31b9022">
+<!ENTITY MD5		"b43fee2afc53e0b239c1eb0144f6a9e7">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,6 +18,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Added 'microcode' to match strings.
+
+###2017.11.01
 - Fixed match strings for UD logging.
 
 ###2017.07.06
