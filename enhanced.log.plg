@@ -6,7 +6,7 @@
 <!ENTITY version    "2017.12.16">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"b43fee2afc53e0b239c1eb0144f6a9e7">
+<!ENTITY MD5		"f649c17384a3e7a04d35559ce9605f09">
 ]>
 
 <PLUGIN  name="&name;"
@@ -18,20 +18,23 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix Unraid capitalization.
+
+###2017.12.16
 - Added 'microcode' to match strings.
 
 ###2017.11.01
 - Fixed match strings for UD logging.
 
 ###2017.07.06
-- Added some match strings for unRAID 6.4.
+- Added some match strings for Unraid 6.4.
 
 ###2017.06.18
-- More adjustments for the new Azure and Gray themes in unRAID 6.4.
+- More adjustments for the new Azure and Gray themes in Unraid 6.4.
 
 ###2017-06-17b
-- Added some new match strings for unRAID 6.4.
-- Made some adjustments for the new Azure and Gray themes in unRAID 6.4.
+- Added some new match strings for Unraid 6.4.
+- Made some adjustments for the new Azure and Gray themes in Unraid 6.4.
 
 ###2017.05.16
 - Tweak menu tabs.
@@ -40,7 +43,7 @@
 - Replace the built-in Syslog with the enhanced Syslog.
 
 ###2016.10.22
-- Updates for compatibility with unRAID 6.2 and later.
+- Updates for compatibility with Unraid 6.2 and later.
 
 ###2016.09.06
 - Fixed broken link to html color chart.
@@ -49,7 +52,7 @@
 - Fixed match string causing false positive "killer".
 
 ###2016.01.16
-- Compatibility with unRAID 6.1.7.
+- Compatibility with Unraid 6.1.7.
 
 ###2016.01.14
 - Fixed match strings causing false positives related to pre-clear messages.
@@ -64,7 +67,7 @@
 - Modified error and login match strings to help prevent false positives and prioritize highlighting.
 
 ###2015.12.29
-- Initial unRAID V6.1 release.
+- Initial Unraid V6.1 release.
 </CHANGES>
 
 <!--
@@ -81,7 +84,7 @@ The 'pre-install' script.
 <INLINE>
 source /etc/unraid-version
 if [[ ${version:0:3} == 6.0 ]]; then
-  echo "unRAID version 6.1 or higher is required"
+  echo "Unraid version 6.1 or higher is required"
   exit 1
 fi
 
