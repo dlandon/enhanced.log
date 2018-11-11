@@ -71,23 +71,38 @@
 </CHANGES>
 
 <!--
-Copyright 2015, Dan Landon
-his plugin adds a webGui page to view the system log with highlighted lines.
+Copyright 2015-2018, Dan Landon
+This plugin replaces the webGui page to view the system log with highlighted lines.
 You can enable or disable event highlighting and set your own colors for each event.
 You can add your own search string to highlight in the log.
 -->
+
+<!-- The 'version-check' script. -->
+<FILE Run="/usr/bin/php">
+<INLINE>
+<![CDATA[
+<?
+  $version = parse_ini_file("/etc/unraid-version");
+  
+  if ( version_compare($version['version'],"6.1", "<") )
+  {
+    echo "***********************************************************\n";
+    echo "\n";
+    echo "Enhanced Log Requires Unraid version 6.1 or greater to run.\n";
+    echo "\n";
+    echo "***********************************************************\n";
+    exit(1);
+  }
+?>
+]]>
+</INLINE>
+</FILE>
 
 <!--
 The 'pre-install' script.
 -->
 <FILE Run="/bin/bash">
 <INLINE>
-source /etc/unraid-version
-if [[ ${version:0:3} == 6.0 ]]; then
-  echo "Unraid version 6.1 or higher is required"
-  exit 1
-fi
-
 # Remove emhttp files so we can re-install.
 rm -rf /usr/local/emhttp/plugins/&name;/* 2>/dev/null
 
@@ -172,7 +187,7 @@ fi
 echo ""
 echo "-----------------------------------------------------------"
 echo " Plugin &name; is installed."
-echo " Copyright 2015-2017, Dan Landon"
+echo " Copyright 2015-2018, Dan Landon"
 echo " Version: &version;"
 echo "-----------------------------------------------------------"
 echo ""
