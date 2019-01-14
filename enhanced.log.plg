@@ -3,21 +3,28 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2018.11.04">
+<!ENTITY version    "2019.01.14">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
-<!ENTITY MD5		"f649c17384a3e7a04d35559ce9605f09">
+<!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
+<!ENTITY MD5		"69afba4125c864f1964c567bae2f37bf">
 ]>
 
-<PLUGIN  name="&name;"
-         author="&author;"
-         version="&version;"
-         launch="&launch;"
-         pluginURL="&pluginURL;">
+<PLUGIN	name="&name;"
+		author="&author;"
+		version="&version;"
+		launch="&launch;"
+		pluginURL="&pluginURL;"
+		support="&supportURL;"
+		icon="check-square"
+		min="6.4.0">
 
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Icons for v6.
+
+###2018.11.04
 - Fix Unraid capitalization.
 
 ###2017.12.16
@@ -76,27 +83,6 @@ This plugin replaces the webGui page to view the system log with highlighted lin
 You can enable or disable event highlighting and set your own colors for each event.
 You can add your own search string to highlight in the log.
 -->
-
-<!-- The 'version-check' script. -->
-<FILE Run="/usr/bin/php">
-<INLINE>
-<![CDATA[
-<?
-  $version = parse_ini_file("/etc/unraid-version");
-  
-  if ( version_compare($version['version'],"6.1", "<") )
-  {
-    echo "***********************************************************\n";
-    echo "\n";
-    echo "Enhanced Log Requires Unraid version 6.1 or greater to run.\n";
-    echo "\n";
-    echo "***********************************************************\n";
-    exit(1);
-  }
-?>
-]]>
-</INLINE>
-</FILE>
 
 <!--
 The 'pre-install' script.
@@ -187,7 +173,7 @@ fi
 echo ""
 echo "-----------------------------------------------------------"
 echo " Plugin &name; is installed."
-echo " Copyright 2015-2018, Dan Landon"
+echo " Copyright 2015-2019, Dan Landon"
 echo " Version: &version;"
 echo "-----------------------------------------------------------"
 echo ""
