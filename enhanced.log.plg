@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.01.14">
+<!ENTITY version    "2019.01.15">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"69afba4125c864f1964c567bae2f37bf">
+<!ENTITY MD5		"addd86a8dcee8ebedbe21adbcc68a86d">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Change default colors to be more compatible with the black theme.
+
+2019.01.14
 - Fix: Icons for v6.
 
 ###2018.11.04
