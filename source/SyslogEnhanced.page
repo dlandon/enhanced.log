@@ -1,6 +1,6 @@
 Menu="UNRAID-OS"
 Title="System Log"
-Icon="check-square"
+Icon="align-left"
 ---
 <?php
 /* Copyright 2015-2016, Lime Technology
