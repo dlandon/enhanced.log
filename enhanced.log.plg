@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.01.15">
+<!ENTITY version    "2019.01.18">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"addd86a8dcee8ebedbe21adbcc68a86d">
+<!ENTITY MD5		"ecf06b9aac7259d0dff8fe550f5d85cd">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Initial color scheme when installing plugin.
+
+###2019.01.15
 - Fix: Change default colors to be more compatible with the black theme.
 
 2019.01.14
@@ -139,17 +142,17 @@ NETWORK="yes"
 LOGIN="yes"
 EMHTTP="no"
 OTHER="no"
-ERRORS_CLR="HotPink"
-MINOR_ISSUES_CLR="LemonChiffon"
+ERRORS_CLR="IndianRed"
+MINOR_ISSUES_CLR="LightCoral"
 LIME_TECH_CLR="LimeGreen"
-ARRAY_CLR="HoneyDew"
-SYSTEM_CLR="LightGreen"
-FILE_SYSTEM_CLR="Gainsboro"
-DRIVE_RELATED_CLR="AliceBlue"
-NETWORK_CLR="Thistle"
-LOGIN_CLR="Lavender"
-EMHTTP_CLR="Azure"
-OTHER_CLR="SeaShell"
+ARRAY_CLR="DarkSeaGreen"
+SYSTEM_CLR="Gray"
+FILE_SYSTEM_CLR="Fuchsia"
+DRIVE_RELATED_CLR="CornFlowerBlue"
+NETWORK_CLR="Violet"
+LOGIN_CLR="LightSalmon"
+EMHTTP_CLR="CadetBlue"
+OTHER_CLR="SeaGreen"
 ]]>
 </INLINE>
 </FILE>
