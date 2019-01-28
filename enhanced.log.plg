@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.01.18a">
+<!ENTITY version    "2019.01.28">
 <!ENTITY launch    "Utilities/SyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"825bc51bdf176ada7e35cdba93308970">
+<!ENTITY MD5		"245db65314baf246cbd555f8644d9a8d">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+Fix: Fix some highlighting issues.
+
+2019.01.18a
 - Fix: Change font awesome icon.
 - Fix: Initial color scheme when installing plugin.
 
