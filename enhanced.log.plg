@@ -22,7 +22,7 @@
 <CHANGES>
 ##&name;
 ###&version;
-Fix: Fix some highlighting issues.
+- Fix: Fix some highlighting issues.
 
 ###2019.01.18a
 - Fix: Change font awesome icon.
