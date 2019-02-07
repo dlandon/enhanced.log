@@ -1,4 +1,4 @@
-Menu="SyslogSettings:2"
+Menu="SyslogEnhancedSettings:2"
 Title="Colors"
 ---
 <?php
