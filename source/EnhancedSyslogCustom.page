@@ -1,4 +1,4 @@
-Menu="SyslogEnhancedSettings:3"
+Menu="EnhancedSyslogSettings:3"
 Title="Custom Match"
 ---
 <?php

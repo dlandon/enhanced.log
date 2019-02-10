@@ -1,4 +1,4 @@
-Menu="SyslogEnhancedSettings:1"
+Menu="EnhancedSyslogSettings:1"
 Title="Configuration"
 ---
 <?php

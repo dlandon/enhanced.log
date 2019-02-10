@@ -1,5 +1,5 @@
 Menu="UNRAID-OS"
-Title="System Log"
+Title="Enhanced System Log"
 Icon="align-left"
 ---
 <?php
