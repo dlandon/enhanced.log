@@ -22,7 +22,7 @@
 <CHANGES>
 ##&name;
 ###&version;
-- Fix: Enhanced System Log no longer replaces the Unraid System Log due to additional enhancements in the built in System Log to support viewing and downloading logs from the Syslog Server.  It is not separated in the 'Tools->Unraid OS' section.
+- Fix: Enhanced System Log no longer replaces the Unraid System Log due to additional enhancements in the built in System Log to support viewing and downloading logs from the Syslog Server.  It is now separated in the 'Tools->Unraid OS' section.
 
 ###2019.02.07
 - Fix: Change file structure to not interfere with Unraid 6.7 syslog settings.
