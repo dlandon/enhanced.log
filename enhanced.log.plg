@@ -7,7 +7,7 @@
 <!ENTITY launch    "Utilities/EnhancedSyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"e9b4358c2f54600ba9a5fc266110643e">
+<!ENTITY MD5		"0f73ae148f55c33cd066bd8d96236c50">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Error message on console.
+
+###2019.02.10
 - Fix: Enhanced System Log no longer replaces the Unraid System Log due to additional enhancements in the built in System Log to support viewing and downloading logs from the Syslog Server.  It is now separated in the 'Tools->Unraid OS' section.
 
 ###2019.02.07
@@ -184,8 +187,8 @@ The 'post-install' script.
 -->
 <FILE Run="/bin/bash">
 <INLINE>
-# Restore original Dynamix page
-mv -f /usr/local/emhttp/plugins/dynamix/Syslog.page- /usr/local/emhttp/plugins/dynamix/Syslog.page
+# Restore original Dynamix page if it is there
+mv -f /usr/local/emhttp/plugins/dynamix/Syslog.page- /usr/local/emhttp/plugins/dynamix/Syslog.page 2>/dev/null
 
 echo ""
 echo "-----------------------------------------------------------"
