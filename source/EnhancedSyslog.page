@@ -158,21 +158,25 @@ foreach ($match as $s) {
 }
 
 echo $display['resize'] ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
-foreach (file('/var/log/syslog') as $line) {
-	$found_it = false;
-	$i = 0;
-	foreach ($match as $s) {
-		if (($s[1] !== "") && (preg_match("/$s[0]/i", $line))) {
-			$found_it = true;
-			break;
+$logs = glob('/var/log/syslog*',GLOB_NOSORT);
+usort($logs, create_function('$a,$b', 'return filemtime($a)-filemtime($b);'));
+foreach ($logs as $log) {
+	foreach (file($log) as $line) {
+		$found_it = false;
+		$i = 0;
+		foreach ($match as $s) {
+			if (($s[1] !== "") && (preg_match("/$s[0]/i", $line))) {
+				$found_it = true;
+				break;
+			}
+			$i++;
 		}
-		$i++;
-	}
 
-	if (($found_it) && ($s[1] !== "skip")) {
-		echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
-	} elseif ($enhanced_log_cfg['TEXT'] == "yes") {
-		echo $line;
+		if (($found_it) && ($s[1] !== "skip")) {
+			echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
+		} elseif ($enhanced_log_cfg['TEXT'] == "yes") {
+			echo $line;
+		}
 	}
 }
 echo "</pre>";
@@ -181,19 +185,19 @@ echo "</pre>";
 
 <script>
 function cleanUp() {
-  if (document.hasFocus()) {
-    $('input[value="Downloading..."]').val('Download').prop('disabled',false);
-    $.post('/webGui/include/Download.php',{cmd:'delete',file:'<?=$zip?>'});
-  } else {
-    setTimeout(cleanUp,4000);
-  }
+	if (document.hasFocus()) {
+		$('input[value="Downloading..."]').val('Download').prop('disabled',false);
+		$.post('/webGui/include/Download.php',{cmd:'delete',file:'<?=$zip?>'});
+	} else {
+		setTimeout(cleanUp,4000);
+	}
 }  
 function getlog() {
-  $('input[value="Download"]').val('Downloading...').prop('disabled',true);
-  $.post('/webGui/include/Download.php',{cmd:'save',source:'/var/log/syslog',file:'<?=$zip?>'},function(zip) {
-    location = zip;
-    setTimeout(cleanUp,4000);
-  });
+	$('input[value="Download"]').val('Downloading...').prop('disabled',true);
+	$.post('/webGui/include/Download.php',{cmd:'save',source:'/var/log/syslog',file:'<?=$zip?>'},function(zip) {
+		location = zip;
+		setTimeout(cleanUp,4000);
+	});
 }
 
 <?if ($display['resize']):?>

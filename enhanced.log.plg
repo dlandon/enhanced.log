@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.02.12">
+<!ENTITY version    "2019.02.19">
 <!ENTITY launch    "Utilities/EnhancedSyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"0f73ae148f55c33cd066bd8d96236c50">
+<!ENTITY MD5		"d22627ef94ca0c383120776c311840b1">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Display complete log including rotated logs.
+
+###2019.02.12
 - Fix: Error message on console.
 
 ###2019.02.10
