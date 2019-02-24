@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.02.19">
+<!ENTITY version    "2019.02.24">
 <!ENTITY launch    "Utilities/EnhancedSyslogSettings">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"d22627ef94ca0c383120776c311840b1">
+<!ENTITY MD5		"897aa39c1faa67071fc8fc15a7f9987e">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Add: Refresh button and automatic scroll to the bottom when the log is loaded.
+
+###2019.02.19
 - Fix: Display complete log including rotated logs.
 
 ###2019.02.12

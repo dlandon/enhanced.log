@@ -200,6 +200,10 @@ function getlog() {
 	});
 }
 
+$(document).ready(function() {
+    $(document).scrollTop($(document).height());
+});
+
 <?if ($display['resize']):?>
 function resize() {
   $('pre.up').height(Math.max(window.innerHeight-280,370)).show();
@@ -245,4 +249,4 @@ $(function() {
 <?endif;?>
 </script>
 
-<input type="button" value="Download" onclick="getlog()"><input type="button" value="Done" onclick="done()">
+<input type="button" value="Download" onclick="getlog()"><input type="button" value="Refresh" onclick="refresh()"><input type="button" value="Done" onclick="done()">
