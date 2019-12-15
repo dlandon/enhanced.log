@@ -1,0 +1,33 @@
+#!/usr/bin/php
+<?php
+/* Copyright 2019, Dan Landon
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+
+$plugin = "enhanced.log";
+$docroot = $docroot ?: @$_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
+$file = "/boot/config/plugins/$plugin/syslog_filter.conf";
+$filter_file ="/boot/config/plugins/$plugin/02-blocklist-extra.conf";
+$text = explode("\n", file_get_contents($file));
+
+foreach($text as $line) {
+	if ($line != '') {
+		$filter[] = ":msg,contains,".$line." stop\n";
+	}
+}
+
+file_put_contents($filter_file, $filter);
+
+/* Setup log rules */
+shell_exec("cp {$filter_file} /etc/rsyslog.d/");
+shell_exec("chmod 644 /etc/rsyslog.d/02-blocklist-extra.conf");
+
+/* restart rsyslog */
+shell_exec("/etc/rc.d/rc.rsyslogd restart");
+?>

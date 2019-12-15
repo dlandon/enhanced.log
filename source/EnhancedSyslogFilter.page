@@ -1,0 +1,54 @@
+Menu="EnhancedSyslogSettings:4"
+Title="Syslog Filter"
+---
+<?php
+/* Copyright 2015-2019, Dan Landon
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License version 2,
+ * as published by the Free Software Foundation.
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ */
+?>
+
+<table class="tablesorter shift ups">
+<thead><tr><th>Custom Syslog Match</th></tr></thead>
+</table>
+
+> You can filter out log entries to keep your Syslog from being overwhelmed with debig or redundant log entries.  You should only filter out log entries that you know are unnecessary or redundant.
+> Because the Syslog is very important for debugging issues, don't filter out entries unnecessarily.
+> Enter the log strings you want to filtered from the Syslog.  Each entry is on a separate line with leading and trailing quotes.
+ 
+<?
+$file = "/boot/config/plugins/enhanced.log/syslog_filter.conf";
+$text = file_get_contents($file);
+$default_text = @file_get_contents("$file-");
+if ($default_text === false) $default_text = $text;
+?>
+<script>
+function setDefault(form) {
+  form.elements['text'].value = <?=json_encode($default_text);?>;
+}
+</script>
+<div style="width: 55%; float:left">
+	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
+	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
+	<input type="hidden" name="#file" value="<?=$file;?>">
+	Syslog Filter Strings:
+
+	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%"><?=$text;?></textarea>
+
+	<dl><dt>&nbsp;</dt><dd>
+		<form name="apply_syslog_filter" method="POST" action="/update.php" target="progressFrame">
+			<input type="hidden" name="#command" value="/plugins/enhanced.log/scripts/rc.enhanced.log">
+			<input type="submit" value="Apply" title="Apply Syslog Filter."><input type="button" value="Done" onclick="done()">
+		</form>
+	</dd></dl>
+
+	> Click the **Apply** button to Apply the Syslog filter. Click **Reset** to
+	> undo any changes you make before you have saved the Syslog filter. Click **Done** to exit this page.
+
+	</form>
+</div>

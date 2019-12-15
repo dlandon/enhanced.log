@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.02.24">
-<!ENTITY launch    "Utilities/EnhancedSyslogSettings">
+<!ENTITY version    "2019.12.15">
+<!ENTITY launch    "">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"897aa39c1faa67071fc8fc15a7f9987e">
+<!ENTITY MD5		"ee6a97de5c4054f9a7aea142049e3d32">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+-Add: Added syslog filter.
+
+###2019.02.24
 - Add: Refresh button and automatic scroll to the bottom when the log is loaded.
 
 ###2019.02.19
@@ -146,6 +149,9 @@ tar -xf /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/pl
 
 # Adjust plugin permissions.
 chmod 755 -R /usr/local/emhttp/plugins/&name; 2>/dev/null
+
+# Fix permissions of executable files
+chmod +x /usr/local/emhttp/plugins/&name;/scripts/* /usr/local/emhttp/plugins/&name;/event/*
 </INLINE>
 </FILE>
 
@@ -183,6 +189,14 @@ OTHER_CLR="SeaGreen"
 <INLINE>
 <![CDATA[
 "Recycle Bin", "other"
+]]>
+</INLINE>
+</FILE>
+
+<FILE Name="/boot/config/plugins/&name;/syslog_filter.conf">
+<INLINE>
+<![CDATA[
+"this is an example line"
 ]]>
 </INLINE>
 </FILE>
