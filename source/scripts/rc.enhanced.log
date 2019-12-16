@@ -10,6 +10,8 @@
  * all copies or substantial portions of the Software.
  */
 
+echo("\nApplying Syslog Filter...");
+
 $plugin = "enhanced.log";
 $docroot = $docroot ?: @$_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
 $file = "/boot/config/plugins/$plugin/syslog_filter.conf";

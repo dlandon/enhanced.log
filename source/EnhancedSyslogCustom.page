@@ -14,7 +14,7 @@ Title="Custom Match"
 ?>
 
 <table class="tablesorter shift ups">
-<thead><tr><th>Custom Syslog Match</th></tr></thead>
+<thead><tr><th>Custom Syslog Match Strings</th></tr></thead>
 </table>
 
 > Enter any custom events you want highlighted in the log.  Any custom events you enter will be processed after the built in events.
@@ -37,11 +37,10 @@ function setDefault(form) {
   form.elements['text'].value = <?=json_encode($default_text);?>;
 }
 </script>
-<div style="width: 55%; float:left">
+<div style="width: 80%; float:left">
 	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
 	<input type="hidden" name="#file" value="<?=$file;?>">
-	Custom Syslog Match Strings:
 
 	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%"><?=$text;?></textarea>
 
