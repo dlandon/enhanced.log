@@ -200,10 +200,6 @@ function getlog() {
 	});
 }
 
-$(document).ready(function() {
-    $(document).scrollTop($(document).height());
-});
-
 <?if ($display['resize']):?>
 function resize() {
   $('pre.up').height(Math.max(window.innerHeight-280,370)).show();

@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.12.15a">
-<!ENTITY launch    "">
+<!ENTITY version    "2019.12.24">
+<!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"6486cb81a8369c7cb06930680956dd5b">
+<!ENTITY MD5		"cde3b332bb03f2f81109960966187893">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Hang when displaying the log.
+
+###2019.12.15a
 -Add: Added syslog filter.
 
 ###2019.02.24
