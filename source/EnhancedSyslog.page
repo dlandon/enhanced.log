@@ -172,10 +172,8 @@ foreach ($logs as $log) {
 			$i++;
 		}
 
-		if (($found_it) && ($s[1] !== "skip")) {
+		if (($found_it) && ($s[1] !== "skip") || ($enhanced_log_cfg['TEXT'] == "yes")) {
 			echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
-		} elseif ($enhanced_log_cfg['TEXT'] == "yes") {
-			echo $line;
 		}
 	}
 }
@@ -199,6 +197,10 @@ function getlog() {
 		setTimeout(cleanUp,4000);
 	});
 }
+
+$(document).ready(function() {
+    $(document).scrollTop($(document).height());
+});
 
 <?if ($display['resize']):?>
 function resize() {
