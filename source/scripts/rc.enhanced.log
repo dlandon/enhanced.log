@@ -10,8 +10,6 @@
  * all copies or substantial portions of the Software.
  */
 
-echo("\nApplying Syslog Filter...");
-
 $plugin = "enhanced.log";
 $docroot = $docroot ?: @$_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
 $file = "/boot/config/plugins/$plugin/syslog_filter.conf";
@@ -28,7 +26,9 @@ file_put_contents($filter_file, $filter);
 
 /* Setup log rules */
 shell_exec("cp {$filter_file} /etc/rsyslog.d/");
-shell_exec("chmod 644 /etc/rsyslog.d/02-blocklist-extra.conf");
+shell_exec("chmod 644 {$filter_file}");
+
+sleep(1);
 
 /* restart rsyslog */
 shell_exec("/etc/rc.d/rc.rsyslogd restart");

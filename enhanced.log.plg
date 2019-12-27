@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2019.12.24a">
+<!ENTITY version    "2019.12.26">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"80de1edd96e3aee6c06755b859ea4d8e">
+<!ENTITY MD5		"f61149dab38cad20fa6de9acbb602a12">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,10 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Move apply syslog filter to 'started' event.
+- Fix: Change some icons.
+
+###2019.12.24a
 - Fix: Hang when displaying the log.
 
 ###2019.12.15a
