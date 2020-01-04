@@ -5,7 +5,7 @@ Icon="align-left"
 <?php
 /* Copyright 2015-2016, Lime Technology
  * Copyright 2015-2016, Bergware International.
- * Copyright 2015-2019, Dan Landon
+ * Copyright 2015-2020, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -19,6 +19,7 @@ $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi')."
 
 /* Assign events and colors from configuration file. */
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
+$display_lines = (isset($enhanced_log_cfg['LINES']) ? $enhanced_log_cfg['LINES'] : 1000);
 
 /* Array of strings and highlight colors - "match string", "event". */
 $pre_defined = array_map('str_getcsv', file('plugins/enhanced.log/syslog_match.conf'));
@@ -158,23 +159,21 @@ foreach ($match as $s) {
 }
 
 echo $display['resize'] ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
-$logs = glob('/var/log/syslog*',GLOB_NOSORT);
-usort($logs, create_function('$a,$b', 'return filemtime($a)-filemtime($b);'));
-foreach ($logs as $log) {
-	foreach (file($log) as $line) {
-		$found_it = false;
-		$i = 0;
-		foreach ($match as $s) {
-			if (($s[1] !== "") && (preg_match("/$s[0]/i", $line))) {
-				$found_it = true;
-				break;
-			}
-			$i++;
+$log_lines = explode("\n", shell_exec("/usr/bin/cat /var/log/syslog | tail -n {$display_lines}"));
+foreach ($log_lines as $line) {
+	$line .="\n";
+	$found_it = false;
+	$i = 0;
+	foreach ($match as $s) {
+		if (($s[1] !== "") && (preg_match("/$s[0]/i", $line))) {
+			$found_it = true;
+			break;
 		}
+		$i++;
+	}
 
-		if (($found_it) && ($s[1] !== "skip") || ($enhanced_log_cfg['TEXT'] == "yes")) {
-			echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
-		}
+	if (($found_it) && ($s[1] !== "skip") || ($enhanced_log_cfg['TEXT'] == "yes")) {
+		echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
 	}
 }
 echo "</pre>";

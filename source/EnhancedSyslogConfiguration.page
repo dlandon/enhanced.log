@@ -2,7 +2,7 @@ Menu="EnhancedSyslogSettings:1"
 Title="Configuration"
 ---
 <?php
-/* Copyright 2015-2019, Dan Landon.
+/* Copyright 2015-2020, Dan Landon.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -30,6 +30,11 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 	> Set to 'Yes' to show all lines in the enhanced log.  Set to 'No' to show only highlighted lines.
+
+	Number of Lines to Display:
+	: <input type="text" name="LINES" class="narrow" maxlength="4" value="<?=(isset($enhanced_log_cfg['LINES']) ? $enhanced_log_cfg['LINES'] : "1000");?>">
+
+	> Number of lines to display in the Enhanced Syslog.  Default is 1000.
 
 	Enable 'Error' Highlighting?
 	: <select name="ERRORS" size="1">
