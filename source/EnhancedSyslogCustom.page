@@ -11,12 +11,25 @@ Title="Custom Match"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
+
+$plugin = "enhanced.log";
+$docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
+$translations = file_exists("$docroot/webGui/include/Translations.php");
+require_once "$docroot/plugins/$plugin/include/Legacy.php";
+?>
+<?if (!$translations):?>
+<?eval('?>'.parse_file("$docroot/plugins/$plugin/EnhancedSyslogCustom.page"))?>
+<?else:?>
+<?
+// read translations
+parse_plugin('EnhancedSysLog');
 ?>
 
 <table class="tablesorter shift ups">
-<thead><tr><th>Custom Syslog Match Strings</th></tr></thead>
+<thead><tr><th>_(Custom Syslog Match Strings)_</th></tr></thead>
 </table>
 
+:enhanced_log_custom_plug:
 > Enter any custom events you want highlighted in the log.  Any custom events you enter will be processed after the built in events.
 > The events are entered as: "search string", "event"
 > Case is ignored in the search string and wild cards are allowed.
@@ -25,6 +38,7 @@ Title="Custom Match"
 > "(spinup|spindown)" will match any string with either 'spinup' or 'spindown'. 
 > The search string and event are quoted, and each line contains one match string and event combination.  Errors in the strings can cause php errors.
 > Events are: "error", "minor issues", "lime tech", "array", "system", "file system", "drive related", "network", "login", "emhttp", "other".
+:end
  
 <?
 $file = "/boot/config/plugins/enhanced.log/custom_syslog.conf";
@@ -45,11 +59,14 @@ function setDefault(form) {
 	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%"><?=$text;?></textarea>
 
 	<dl><dt>&nbsp;</dt><dd>
-	<input type="submit" value="Apply"/><input type="button" value="Done" onclick="done()">
+	<input type="submit" value="_(Apply)_"/><input type="button" value="_(Done)_" onclick="done()">
 	</dd></dl>
 
+:enhanced_log_custom_buttons_plug:
 	> Click the **Apply** button to save your custom events.  Click **Reset** to
 	> undo any changes you make before you have saved the custom events. Click **Done** to exit this page.
+:end
 
 	</form>
 </div>
+<?endif;?>

@@ -11,15 +11,28 @@ Title="Syslog Filter"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
+$plugin = "enhanced.log";
+$docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
+$translations = file_exists("$docroot/webGui/include/Translations.php");
+require_once "$docroot/plugins/$plugin/include/Legacy.php";
+?>
+<?if (!$translations):?>
+<?eval('?>'.parse_file("$docroot/plugins/$plugin/EnhancedSyslogFilter.page"))?>
+<?else:?>
+<?
+// read translations
+parse_plugin('EnhancedSysLog');
 ?>
 
 <table class="tablesorter shift ups">
-<thead><tr><th>Syslog Filter Strings</th></tr></thead>
+<thead><tr><th>_(Syslog Filter Strings)_</th></tr></thead>
 </table>
 
+:enhanced_log_filter_plug:
 > You can filter out log entries to keep your Syslog from being overwhelmed with debig or redundant log entries.  You should only filter out log entries that you know are unnecessary or redundant.
 > Because the Syslog is very important for debugging issues, don't filter out entries unnecessarily.
 > Enter the log strings you want to filtered from the Syslog.  Each entry is on a separate line with leading and trailing quotes.
+:end
  
 <?
 $file = "/boot/config/plugins/enhanced.log/syslog_filter.conf";
@@ -42,12 +55,15 @@ function setDefault(form) {
 	<dl><dt>&nbsp;</dt><dd>
 		<form name="apply_syslog_filter" method="POST" action="/update.php" target="progressFrame">
 			<input type="hidden" name="#command" value="/plugins/enhanced.log/scripts/rc.enhanced.log">
-			<input type="submit" value="Apply" title="Apply Syslog Filter."><input type="button" value="Done" onclick="done()">
+			<input type="submit" value="_(Apply)_" title="Apply Syslog Filter."><input type="button" value="_(Done)_" onclick="done()">
 		</form>
 	</dd></dl>
 
+:enhanced_log_filter_buttons_plug:
 	> Click the **Apply** button to Apply the Syslog filter. Click **Reset** to
 	> undo any changes you make before you have saved the Syslog filter. Click **Done** to exit this page.
+:end
 
 	</form>
 </div>
+<?endif;?>
