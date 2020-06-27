@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2020.01.04">
+<!ENTITY version    "2020.06.27">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"43e4a7410fe07f7e4e7dff3687edb13f">
+<!ENTITY MD5		"a430fb447d1894953fca42c04db2ab0f">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Add: Multi Language support.
+
+###2020.01.04
 - Add: Setting on how many lines to display in the Enhanced Syslog.
 
 ###2019.12.26
