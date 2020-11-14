@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2020.06.27">
+<!ENTITY version    "2020.11.14">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"a430fb447d1894953fca42c04db2ab0f">
+<!ENTITY MD5		"15242838ba36eda51a188ce9faaef1bf">
 ]>
 
 <PLUGIN	name="&name;"
@@ -17,11 +17,15 @@
 		pluginURL="&pluginURL;"
 		support="&supportURL;"
 		icon="align-left"
-		min="6.4.0">
+		min="6.4.0"
+		max="6.8.9">
 
 <CHANGES>
 ##&name;
 ###&version;
+- Add: Max Unraid version 6.8.9.
+
+###2020.11.14
 - Add: Multi Language support.
 
 ###2020.01.04
