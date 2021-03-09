@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2020.11.20">
+<!ENTITY version    "2021.03.09">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"c57bf7db4fce0a3d27d34df3958d273c">
+<!ENTITY MD5		"9e7573c73c9444fb8eb2f276d4e19a6e">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Plugin permissions.
+
+###2020.11.20
 - Fix: Revert max version.
 
 ###2020.11.20
