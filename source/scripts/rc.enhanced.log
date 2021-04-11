@@ -10,10 +10,11 @@
  * all copies or substantial portions of the Software.
  */
 
-$plugin = "enhanced.log";
+$plugin	= "enhanced.log";
 $docroot = $docroot ?: @$_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
+$rsyslog_conf = "/etc/rsyslog.conf";
 $file = "/boot/config/plugins/$plugin/syslog_filter.conf";
-$filter_file ="/boot/config/plugins/$plugin/02-blocklist-extra.conf";
+$filter_file ="/etc/rsyslog.d/02-blocklist-extra.conf";
 $text = explode("\n", file_get_contents($file));
 
 foreach($text as $line) {
@@ -25,10 +26,15 @@ foreach($text as $line) {
 file_put_contents($filter_file, $filter);
 
 /* Setup log rules */
-shell_exec("cp {$filter_file} /etc/rsyslog.d/");
 shell_exec("chmod 644 {$filter_file}");
 
 sleep(1);
+
+/* Adjust rsyslog.conf so filtering will work. */
+$str = file_get_contents($rsyslog_conf);
+$str = str_replace("RuleSet local", "RuleSet RSYSLOG_DefaultRuleset", $str);
+$str = str_replace("DefaultRuleset local", "DefaultRuleset RSYSLOG_DefaultRuleset", $str);
+file_put_contents($rsyslog_conf, $str);
 
 /* restart rsyslog */
 shell_exec("/etc/rc.d/rc.rsyslogd restart");
