@@ -32,7 +32,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 <thead><tr><th>_(Syslog Configuration)_</th></tr></thead>
 </table>
 
-<div style="width: 60%; float:left">
+<div style="width: 100%; float:left">
 	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
 
@@ -43,7 +43,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_syslog_show_all_lines_plug:
-	> Set to 'Yes' to show all lines in the enhanced log.  Set to 'No' to show only highlighted lines.
+	> Set to **Yes** to show all lines in the enhanced log.  Set to **No** to show only highlighted lines.
 :end
 
 	_(Number of Lines to Display)_:
@@ -60,7 +60,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_error_plug:
-	> Set to 'Yes' to enable 'Errors' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Errors** highlighting in the enhanced log.
 :end
 
 	_(Enable 'Minor Issues' Highlighting)_?
@@ -70,7 +70,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_minor_plug:
-	> Set to 'Yes' to enable 'Minor Issues' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Minor Issues** highlighting in the enhanced log.
 :end
 
 	_(Enable 'Lime Tech' Highlighting)_?
@@ -80,7 +80,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_limetch_plug:
-	> Set to 'Yes' to enable 'Lime Tech' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Lime Tech** highlighting in the enhanced log.
 :end
 
 
@@ -91,7 +91,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_array_plug:
-	> Set to 'Yes' to enable 'Array' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Array** highlighting in the enhanced log.
 :end
 
 	_(Enable 'System' Highlighting)_?
@@ -101,7 +101,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_system_plug:
-	> Set to 'Yes' to enable 'System' highlighting in the enhanced log.
+	> Set to **Yes** to enable **System** highlighting in the enhanced log.
 :end
 
 	_(Enable 'File System' Highlighting)_?
@@ -111,7 +111,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_file_system_plug:
-	> Set to 'Yes' to enable 'File System' highlighting in the enhanced log.
+	> Set to **Yes** to enable **File System** highlighting in the enhanced log.
 :end
 
 	_(Enable 'Drive Related' Highlighting)_?
@@ -121,7 +121,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_drive_plug:
-	> Set to 'Yes' to enable 'Drive Related' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Drive Related** highlighting in the enhanced log.
 :end
 
 	_(Enable 'Network' Highlighting)_?
@@ -131,7 +131,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_network_plug:
-	> Set to 'Yes' to enable 'Network' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Network** highlighting in the enhanced log.
 :end
 
 	_(Enable 'Login' Highlighting)_?
@@ -141,7 +141,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_login_plug:
-	> Set to 'Yes' to enable 'Login' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Login** highlighting in the enhanced log.
 :end
 
 	_(Enable 'emhttp' Highlighting)_?
@@ -151,7 +151,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_emhttp_plug:
-	> Set to 'Yes' to enable 'emhttp' highlighting in the enhanced log.
+	> Set to **Yes** to enable **emhttp** highlighting in the enhanced log.
 :end
 
 	_(Enable 'Other' Highlighting)_?
@@ -161,14 +161,14 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	  </select>
 
 :enhanced_log_enable_other_plug:
-	> Set to 'Yes' to enable 'Other' highlighting in the enhanced log.
+	> Set to **Yes** to enable **Other** highlighting in the enhanced log.
 :end
 
 	<input type="submit" name="#default" value="_(Default)_">
 	: <input type="submit" name="#apply" value="_(Apply)_"><input type="button" value="_(Done)_" onclick="done()">
 
 :enhancd_log_default_plug:
-	> 'Default' resets the Configuration and Colors.  Click 'Apply' to save your changes.  Click 'Done' when you are finished with your changes.
+	> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
 :end
 
 	</form>
