@@ -3,11 +3,11 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2021.05.20">
+<!ENTITY version    "2021.05.28">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY pluginURL  "https://github.com/dlandon/enhanced.log/raw/master/enhanced.log.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"a10e104240d78f7708b52d1562d8221d">
+<!ENTITY MD5		"12f96ebbd91acdd6e9841e11e8d6363b">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,10 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Minor UI changes.
+- Fix: Help text to be compatible with other plugins.
+
+###2021.05.20
 - Fix: Minimum version changed to 6.7.
 - Fix: Keep configuration files on flash drive when uninstalling.
 - Fix: Remove unneeded images folder.
@@ -239,9 +243,6 @@ The 'post-install' script.
 -->
 <FILE Run="/bin/bash">
 <INLINE>
-# Restore original Dynamix page if it is there
-mv -f /usr/local/emhttp/plugins/dynamix/Syslog.page- /usr/local/emhttp/plugins/dynamix/Syslog.page 2>/dev/null
-
 echo ""
 echo "-----------------------------------------------------------"
 echo " Plugin &name; is installed."
