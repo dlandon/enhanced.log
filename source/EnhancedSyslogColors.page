@@ -115,7 +115,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	<input type="submit" name="#default" value="_(Default)_">
-	: <input type="submit" name="#apply" value="_(Apply)_"><input type="button" value="_(Done)_" onclick="done()">
+	: <input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
 
 	> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
 	</form>
