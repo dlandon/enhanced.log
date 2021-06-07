@@ -33,7 +33,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 </table>
 
 <div style="width: 100%; float:left">
-	<form class="js-confirm-leave" markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
+	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
 	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank" title="Color Selection Chart"> <u>_(Color Selection Chart)_</u></a></span>
 
@@ -115,8 +115,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	<input type="submit" name="#default" value="_(Default)_">
-	: <input type="submit" value='_(Apply)_'/>
-	<button type="button" onclick="done()">_(Done)_</button>
+	: <input type="submit" name="#apply" value="_(Apply)_"><input type="button" value="_(Done)_" onclick="done()">
 
 	> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
 	</form>

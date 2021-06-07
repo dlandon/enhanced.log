@@ -255,7 +255,5 @@ $(function() {
 <?endif;?>
 </script>
 
-<input type="button" value="_(Download)_" onclick="getlog()">
-<input type="button" value="_(Refresh)_" onclick="refresh()">
-<input type="button" value="_(Done)_" onclick="done()">
+<input type="button" value="_(Download)_" onclick="getlog()"><input type="button" value="_(Refresh)_" onclick="refresh()"><input type="button" value="_(Done)_" onclick="done()">
 <?endif;?>

@@ -46,7 +46,7 @@ function setDefault(form) {
 }
 </script>
 <div style="width: 80%; float:left">
-	<form class="js-confirm-leave" markdown="1" method="POST" action="/update.php" target="progressFrame">
+	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
 	<input type="hidden" name="#file" value="<?=$file;?>">
 
@@ -55,8 +55,7 @@ function setDefault(form) {
 	<dl><dt>&nbsp;</dt><dd>
 		<form name="apply_syslog_filter" method="POST" action="/update.php" target="progressFrame">
 			<input type="hidden" name="#command" value="/plugins/enhanced.log/scripts/rc.enhanced.log">
-			<input type="submit" value='_(Apply)_'/>
-			<button type="button" onclick="done()">_(Done)_</button>
+			<input type="submit" value="_(Apply)_" title="Apply Syslog Filter."><input type="button" value="_(Done)_" onclick="done()">
 		</form>
 	</dd></dl>
 

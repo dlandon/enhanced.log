@@ -52,15 +52,14 @@ function setDefault(form) {
 }
 </script>
 <div style="width: 80%; float:left">
-	<form class="js-confirm-leave" markdown="1" method="POST" action="/update.php" target="progressFrame">
+	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
 	<input type="hidden" name="#file" value="<?=$file;?>">
 
 	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%"><?=$text;?></textarea>
 
 	<dl><dt>&nbsp;</dt><dd>
-	<input type="submit" value='_(Apply)_'/>
-	<button type="button" onclick="done()">_(Done)_</button>
+	<input type="submit" value="_(Apply)_"/><input type="button" value="_(Done)_" onclick="done()">
 	</dd></dl>
 
 :enhanced_log_custom_buttons_plug:
