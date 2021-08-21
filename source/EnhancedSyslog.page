@@ -168,7 +168,7 @@ foreach ($match as $s) {
 }
 
 echo $display['resize'] ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
-$log_lines = explode("\n", shell_exec("/usr/bin/cat /var/log/syslog | tail -n {$display_lines}"));
+$log_lines = explode("\n", shell_exec("/usr/bin/cat /var/log/syslog | tail -n ".escapeshellagr($display_lines)));
 foreach ($log_lines as $line) {
 	$line .="\n";
 	$found_it = false;

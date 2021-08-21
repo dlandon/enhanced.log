@@ -26,7 +26,7 @@ foreach($text as $line) {
 file_put_contents($filter_file, $filter);
 
 /* Setup log rules */
-shell_exec("chmod 644 {$filter_file}");
+@chmod($filter_file, 0644);
 
 sleep(1);
 
