@@ -169,8 +169,6 @@ The 'pre-install' script.
 -->
 <FILE Run="/bin/bash">
 <INLINE>
-echo "&pluginURL;"
-
 # Remove emhttp files so we can re-install.
 rm -rf /usr/local/emhttp/plugins/&name;/* 2>/dev/null
 
