@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2022.08.19">
+<!ENTITY version    "2022.10.15">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"c81d8a90da47c2246493bd7bf5f80b80">
+<!ENTITY MD5		"26f08f426e75db9f5bd93185ff0bca49">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Adjust buttons on bottom of page to show when using 'fixed' listing height.
+
+###2022.08.19
 - Fix: Reference to GitHub repository.
 
 ###2021.08.21
