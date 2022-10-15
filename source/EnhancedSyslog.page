@@ -5,7 +5,7 @@ Icon="align-left"
 <?php
 /* Copyright 2015-2016, Lime Technology
  * Copyright 2015-2016, Bergware International.
- * Copyright 2015-2021, Dan Landon
+ * Copyright 2015-2022, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -27,8 +27,8 @@ require_once "$docroot/plugins/$plugin/include/Legacy.php";
 $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi').".zip";
 
 /* Assign events and colors from configuration file. */
-$enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
-$display_lines = (isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
+$enhanced_log_cfg	= parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
+$display_lines		= (isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
 
 /* Array of strings and highlight colors - "match string", "event". */
 $pre_defined = array_map('str_getcsv', file('plugins/enhanced.log/syslog_match.conf'));
@@ -212,7 +212,7 @@ $(document).ready(function() {
 
 <?if ($display['resize']):?>
 function resize() {
-  $('pre.up').height(Math.max(window.innerHeight-280,370)).show();
+  $('pre.up').height(Math.max(window.innerHeight-320,370)).show();
 }
 $(function() {
   resize();

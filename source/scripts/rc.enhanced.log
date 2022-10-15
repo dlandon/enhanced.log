@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-/* Copyright 2020, Dan Landon
+/* Copyright 2022, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -10,12 +10,12 @@
  * all copies or substantial portions of the Software.
  */
 
-$plugin	= "enhanced.log";
-$docroot = $docroot ?: @$_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
-$rsyslog_conf = "/etc/rsyslog.conf";
-$file = "/boot/config/plugins/$plugin/syslog_filter.conf";
-$filter_file ="/etc/rsyslog.d/02-blocklist-extra.conf";
-$text = explode("\n", file_get_contents($file));
+$plugin			= "enhanced.log";
+$docroot		= $docroot ?: @$_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
+$rsyslog_conf	= "/etc/rsyslog.conf";
+$file			= "/boot/config/plugins/$plugin/syslog_filter.conf";
+$filter_file	="/etc/rsyslog.d/02-blocklist-extra.conf";
+$text			= explode("\n", file_get_contents($file));
 
 foreach($text as $line) {
 	if ($line != '') {
