@@ -210,9 +210,15 @@ $(document).ready(function() {
     $(document).scrollTop($(document).height());
 });
 
+$(function() {
+	if ( typeof caPluginUpdateCheck === "function" ) {
+		caPluginUpdateCheck("enhanced.log.plg");
+	}
+});
+
 <?if ($display['resize']):?>
 function resize() {
-  $('pre.up').height(Math.max(window.innerHeight-320,370)).show();
+  $('pre.up').height(Math.max(window.innerHeight-330,370)).show();
 }
 $(function() {
   resize();
