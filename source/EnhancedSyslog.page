@@ -5,7 +5,7 @@ Icon="align-left"
 <?php
 /* Copyright 2015-2016, Lime Technology
  * Copyright 2015-2016, Bergware International.
- * Copyright 2015-2022, Dan Landon
+ * Copyright 2015-2023, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -182,7 +182,7 @@ foreach ($log_lines as $line) {
 	}
 
 	if (($found_it) && ($s[1] !== "skip") || ($enhanced_log_cfg['TEXT'] == "yes")) {
-		echo "<span style='background-color:".$match[$i][1]."';>$line</span>";
+		echo "<span style='background-color:".(isset($match[$i][1]) ? $match[$i][1] : "")."';>$line</span>";
 	}
 }
 echo "</pre>";
