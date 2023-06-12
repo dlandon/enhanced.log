@@ -17,7 +17,7 @@ $filter_file	="/etc/rsyslog.d/02-blocklist-extra.conf";
 $text			= explode("\n", file_get_contents($file));
 
 /* Set up the log filter. */
-$filter			= "";
+$filter			= array();
 foreach($text as $line) {
 	if ($line != '') {
 		$filter[] = ":msg,contains,".$line." stop\n";
