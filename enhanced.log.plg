@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2023.06.12a">
+<!ENTITY version    "2025.02.11">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"7a2e5d25ce9312aa1587ae8e8d2e01f4">
+<!ENTITY MD5		"cb4fb56dc4b8d5e41e4e911853b32ae5">
 ]>
 
 <PLUGIN	name="&name;"
@@ -17,11 +17,18 @@
 		pluginURL="&pluginURL;"
 		support="&supportURL;"
 		icon="align-left"
-		min="6.7.0">
+		min="6.11.0">
 
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Change Unraid minimum version to 6.11.
+- Fix: Language translation updates.
+- Fix: Change variables to constants that should not be variables.
+- Rem: Remove legacy language translation code.
+- Add: Border around text boxes.
+
+###2023.06.12a
 - FIx: Php warning when setting up log filter.
 
 ###2023.02.01
@@ -160,7 +167,7 @@
 </CHANGES>
 
 <!--
-Copyright 2015-2023, Dan Landon
+Copyright 2015-2025, Dan Landon
 This plugin adds a webGui page to view the system log with highlighted lines.
 You can enable or disable event highlighting and set your own colors for each event.
 You can add your own search string to highlight in the log.
@@ -262,7 +269,7 @@ The 'post-install' script.
 echo ""
 echo "-----------------------------------------------------------"
 echo " Plugin &name; is installed."
-echo " Copyright 2015-2023, Dan Landon"
+echo " Copyright 2015-2025, Dan Landon"
 echo " Version: &version;"
 echo "-----------------------------------------------------------"
 echo ""
@@ -276,6 +283,7 @@ The 'remove' script.
 <INLINE>
 # Remove rsyslog filtering.
 rm -rf /etc/rsyslog.d/02-blocklist-extra.conf
+
 # Restart rsyslog
 echo "Restarting rsyslog..."
 /etc/rc.d/rc.rsyslogd restart >/dev/null
