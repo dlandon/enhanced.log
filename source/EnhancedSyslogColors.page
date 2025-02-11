@@ -2,7 +2,7 @@ Menu="EnhancedSyslogSettings:2"
 Title="Colors"
 ---
 <?php
-/* Copyright 2015-2023, Dan Landon.
+/* Copyright 2015-2025, Dan Landon.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -11,20 +11,9 @@ Title="Colors"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
-
-$plugin = "enhanced.log";
-$docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
-$translations = file_exists("$docroot/webGui/include/Translations.php");
-require_once "$docroot/plugins/$plugin/include/Legacy.php";
 ?>
-<?if (!$translations):?>
-<?eval('?>'.parse_file("$docroot/plugins/$plugin/EnhancedSyslogColors.page"))?>
-<?else:?>
+
 <?
-
-// read translations
-parse_plugin('EnhancedSysLog');
-
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 ?>
 
@@ -38,77 +27,77 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank" title="Color Selection Chart"> <u>_(Color Selection Chart)_</u></a></span>
 
 	_('Error' Highlight Color)_:
-	: <input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ERRORS_CLR'];?>">
+	: <input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['ERRORS_CLR']);?>">
 
 :enhanced_log_color_error_plug:
 	> Color to use for **Error** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Minor Issues' Highlight Color)_:
-	: <input type="text" name="MINOR_ISSUES_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['MINOR_ISSUES_CLR'];?>">
+	: <input type="text" name="MINOR_ISSUES_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['MINOR_ISSUES_CLR']);?>">
 
 :enhanced_log_color_minor_plug:
 	> Color to use for **Minor Issues** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Lime Tech' Highlight Color)_:
-	: <input type="text" name="LIME_TECH_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['LIME_TECH_CLR'];?>">
+	: <input type="text" name="LIME_TECH_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['LIME_TECH_CLR']);?>">
 
 :enhanced_log_color_limetech_plug:
 	> Color to use for **Lime Tech** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Array' Highlight Color)_:
-	: <input type="text" name="ARRAY_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['ARRAY_CLR'];?>">
+	: <input type="text" name="ARRAY_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['ARRAY_CLR']);?>">
 
 :enhanced_log_color_array_plug:
 	> Color to use for **Array** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('System' Highlight Color)_:
-	: <input type="text" name="SYSTEM_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['SYSTEM_CLR'];?>">
+	: <input type="text" name="SYSTEM_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['SYSTEM_CLR']);?>">
 
 :enhanced_log_color_system_plug:
 	> Color to use for **System** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('File System' Highlight Color)_:
-	: <input type="text" name="FILE_SYSTEM_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['FILE_SYSTEM_CLR'];?>">
+	: <input type="text" name="FILE_SYSTEM_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['FILE_SYSTEM_CLR']);?>">
 
 :enhanced_log_color_file_system_plug:
 	> Color to use for **File System** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Drive Related' Highlight Color)_
-	: <input type="text" name="DRIVE_RELATED_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['DRIVE_RELATED_CLR'];?>">
+	: <input type="text" name="DRIVE_RELATED_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['DRIVE_RELATED_CLR']);?>">
 
 :enhanced_log_color_drive_plug:
 	> Color to use for **Drive Related** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Network' Highlight Color)_
-	: <input type="text" name="NETWORK_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['NETWORK_CLR'];?>">
+	: <input type="text" name="NETWORK_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['NETWORK_CLR']);?>">
 
 :enhanced_log_color_network_plug:
 	> Color to use for **Network** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Login' Highlight Color)_
-	: <input type="text" name="LOGIN_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['LOGIN_CLR'];?>">
+	: <input type="text" name="LOGIN_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['LOGIN_CLR']);?>">
 
 :enhanced_log_color_login_plug:
 	> Color to use for **Login** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('emhttp' Highlight Color)_
-	: <input type="text" name="EMHTTP_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['EMHTTP_CLR'];?>">
+	: <input type="text" name="EMHTTP_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['EMHTTP_CLR']);?>">
 
 :enhanced_log_color_emhttp_plug:
 	> Color to use for **emhttp** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
 	_('Other' Highlight Color)_
-	: <input type="text" name="OTHER_CLR" class="narrow" maxlength="20" value="<?=$enhanced_log_cfg['OTHER_CLR'];?>">
+	: <input type="text" name="OTHER_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['OTHER_CLR']);?>">
 
 :enhanced_log_color_other_plug:
 	> Color to use for **Other** highlighting.  You can use the color name or number.  The color number begins with a '#'.
@@ -120,4 +109,3 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
 	</form>
 </div>
-<?endif;?>
