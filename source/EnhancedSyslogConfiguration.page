@@ -2,7 +2,7 @@ Menu="EnhancedSyslogSettings:1"
 Title="Configuration"
 ---
 <?php
-/* Copyright 2015-2023, Dan Landon.
+/* Copyright 2015-2025, Dan Landon.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -11,22 +11,19 @@ Title="Configuration"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
-
-$plugin = "enhanced.log";
-$docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
-$translations = file_exists("$docroot/webGui/include/Translations.php");
-require_once "$docroot/plugins/$plugin/include/Legacy.php";
 ?>
-<?if (!$translations):?>
-<?eval('?>'.parse_file("$docroot/plugins/$plugin/EnhancedSyslogConfiguration.page"))?>
-<?else:?>
+
 <?
-
-// read translations
-parse_plugin('EnhancedSysLog');
-
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 ?>
+
+<style>
+	textarea {
+		outline: 1px solid; /* Solid border. */
+		border-radius: 5px; /* Slightly rounded corners. */
+		padding: 5px 15px; /* 5px top/bottom, 15px left/right */
+	}
+</style>
 
 <table class="tablesorter shift ups">
 <thead><tr><th>_(Syslog Configuration)_</th></tr></thead>
@@ -47,7 +44,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Number of Lines to Display)_:
-	: <input type="text" name="LINES" class="narrow" maxlength="4" value="<?=$enhanced_log_cfg['LINES'];?>" placeholder="1000">
+	: <input type="text" name="LINES" class="narrow" maxlength="4" value="<?=htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000">
 
 :enhanced_log_number_of_lines_plug:
 	> Number of lines to display in the Enhanced Syslog.  Default is 1000.
@@ -173,4 +170,3 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 	</form>
 </div>
-<?endif;?>
