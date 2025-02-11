@@ -2,7 +2,7 @@ Menu="EnhancedSyslogSettings:3"
 Title="Custom Match"
 ---
 <?php
-/* Copyright 2015-2023, Dan Landon
+/* Copyright 2015-2025, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -11,18 +11,6 @@ Title="Custom Match"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
-
-$plugin = "enhanced.log";
-$docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
-$translations = file_exists("$docroot/webGui/include/Translations.php");
-require_once "$docroot/plugins/$plugin/include/Legacy.php";
-?>
-<?if (!$translations):?>
-<?eval('?>'.parse_file("$docroot/plugins/$plugin/EnhancedSyslogCustom.page"))?>
-<?else:?>
-<?
-// read translations
-parse_plugin('EnhancedSysLog');
 ?>
 
 <table class="tablesorter shift ups">
@@ -41,22 +29,17 @@ parse_plugin('EnhancedSysLog');
 :end
  
 <?
-$file = "/boot/config/plugins/enhanced.log/custom_syslog.conf";
-$text = file_get_contents($file);
-$default_text = @file_get_contents("$file-");
-if ($default_text === false) $default_text = $text;
+$file			= "/boot/config/plugins/enhanced.log/custom_syslog.conf";
+$text			= @file_get_contents($file);
 ?>
-<script>
-function setDefault(form) {
-  form.elements['text'].value = <?=json_encode($default_text);?>;
-}
-</script>
+
 <div style="width: 80%; float:left">
 	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
+	<input type="hidden" name="#raw_file" value="true">
 	<input type="hidden" name="#file" value="<?=$file;?>">
 
-	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%"><?=$text;?></textarea>
+	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%;"><?=htmlspecialchars($text);?></textarea>
 
 	<dl><dt>&nbsp;</dt><dd>
 	<input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
@@ -69,4 +52,3 @@ function setDefault(form) {
 
 	</form>
 </div>
-<?endif;?>
