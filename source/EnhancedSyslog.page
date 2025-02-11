@@ -5,7 +5,7 @@ Icon="align-left"
 <?php
 /* Copyright 2015-2016, Lime Technology
  * Copyright 2015-2016, Bergware International.
- * Copyright 2015-2023, Dan Landon
+ * Copyright 2015-2025, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -14,16 +14,19 @@ Icon="align-left"
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
-$plugin = "enhanced.log";
-$docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
-$translations = file_exists("$docroot/webGui/include/Translations.php");
-require_once "$docroot/plugins/$plugin/include/Legacy.php";
 ?>
-<?if (!$translations):?>
-<?eval('?>'.parse_file("$docroot/plugins/$plugin/EnhancedSyslog.page"))?>
-<?else:?>
-<?
 
+<?
+/* Define our plugin name. */
+define('ENHANCED_LOG_PLUGIN', 'enhanced.log');
+
+/* Define the docroot path. */
+if (!defined('DOCROOT')) {
+	define('DOCROOT', $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp');
+}
+?>
+
+<?
 $zip = str_replace(' ','_',strtolower($var['NAME']))."-syslog-".date('Ymd-Hi').".zip";
 
 /* Assign events and colors from configuration file. */
@@ -33,95 +36,95 @@ $display_lines		= (isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES
 /* Array of strings and highlight colors - "match string", "event". */
 $pre_defined = array_map('str_getcsv', file('plugins/enhanced.log/syslog_match.conf'));
 if ($enhanced_log_cfg['OTHER'] == "yes") {
-	$custom = array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
-	$match = array_merge($pre_defined, $custom);
+	$custom		= array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
+	$match		= array_merge($pre_defined, $custom);
 } else {
-	$match = array_merge($pre_defined);
+	$match		= array_merge($pre_defined);
 }
 unset($pre_defined);
 unset($custom);
 
 if ($display['theme'] == 'white' || $display['theme'] == 'black') {
-	$font_size = '10pt';
+	$font_size	= '10pt';
 } else {
-	$font_size = '14pt';
+	$font_size	= '14pt';
 }
 
 if ($enhanced_log_cfg['ERRORS'] == "yes") {
-	$errors_color = $enhanced_log_cfg['ERRORS_CLR'];
-	$errors_tag = "<span style='background-color:$errors_color; font-size: $font_size'>&nbsp;_(Errors)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$errors_color			= $enhanced_log_cfg['ERRORS_CLR'];
+	$errors_tag				= "<span style='background-color:$errors_color; font-size: $font_size'>&nbsp;_(Errors)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$errors_color = "";
+	$errors_color			= "";
 }
 
 if ($enhanced_log_cfg['MINOR_ISSUES'] == "yes") {
-	$minor_issues_color = $enhanced_log_cfg['MINOR_ISSUES_CLR'];
-	$minor_issues_tag = "<span style='background-color:$minor_issues_color; font-size: $font_size'>&nbsp_(Minor Issues)_&nbsp</span>&nbsp;&nbsp;&nbsp;";
+	$minor_issues_color		= $enhanced_log_cfg['MINOR_ISSUES_CLR'];
+	$minor_issues_tag		= "<span style='background-color:$minor_issues_color; font-size: $font_size'>&nbsp_(Minor Issues)_&nbsp</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$minor_issues_color = "";
+	$minor_issues_color		= "";
 }
 
 if ($enhanced_log_cfg['LIME_TECH'] == "yes") {
-	$lime_tech_color = $enhanced_log_cfg['LIME_TECH_CLR'];
-	$lime_tech_tag = "<span style='background-color:$lime_tech_color; font-size: $font_size'>&nbsp;_(Lime Tech)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$lime_tech_color		= $enhanced_log_cfg['LIME_TECH_CLR'];
+	$lime_tech_tag			= "<span style='background-color:$lime_tech_color; font-size: $font_size'>&nbsp;_(Lime Tech)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$lime_tech_color = "";
+	$lime_tech_color		= "";
 }
 
 if ($enhanced_log_cfg['ARRAY'] == "yes") {
-	$array_color = $enhanced_log_cfg['ARRAY_CLR'];
-	$array_tag = "<span style='background-color:$array_color; font-size: $font_size'>&nbsp;_(Array)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$array_color			= $enhanced_log_cfg['ARRAY_CLR'];
+	$array_tag				= "<span style='background-color:$array_color; font-size: $font_size'>&nbsp;_(Array)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$array_color = "";
+	$array_color			= "";
 }
 
 if ($enhanced_log_cfg['SYSTEM'] == "yes") {
-	$system_color = $enhanced_log_cfg['SYSTEM_CLR'];
-	$system_tag = "<span style='background-color:$system_color; font-size: $font_size'>&nbsp;_(System)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$system_color			= $enhanced_log_cfg['SYSTEM_CLR'];
+	$system_tag				= "<span style='background-color:$system_color; font-size: $font_size'>&nbsp;_(System)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$system_color = "";
+	$system_color			= "";
 }
 
 if ($enhanced_log_cfg['FILE_SYSTEM'] == "yes") {
-	$file_system_color = $enhanced_log_cfg['FILE_SYSTEM_CLR'];
-	$file_system_tag = "<span style='background-color:$file_system_color; font-size: $font_size'>&nbsp;_(File System)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$file_system_color		= $enhanced_log_cfg['FILE_SYSTEM_CLR'];
+	$file_system_tag		= "<span style='background-color:$file_system_color; font-size: $font_size'>&nbsp;_(File System)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$file_system_color = "";
+	$file_system_color		= "";
 }
 
 if ($enhanced_log_cfg['DRIVE_RELATED'] == "yes") {
-	$drive_related_color = $enhanced_log_cfg['DRIVE_RELATED_CLR'];
-	$drive_related_tag = "<span style='background-color:$drive_related_color; font-size: $font_size'>&nbsp;_(Drive Related)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$drive_related_color	= $enhanced_log_cfg['DRIVE_RELATED_CLR'];
+	$drive_related_tag		= "<span style='background-color:$drive_related_color; font-size: $font_size'>&nbsp;_(Drive Related)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$drive_related_color = "";
+	$drive_related_color	= "";
 }
 
 if ($enhanced_log_cfg['NETWORK'] == "yes") {
-	$network_color = $enhanced_log_cfg['NETWORK_CLR'];
-	$network_tag = "<span style='background-color:$network_color; font-size: $font_size'>&nbsp;_(Network)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$network_color			= $enhanced_log_cfg['NETWORK_CLR'];
+	$network_tag			= "<span style='background-color:$network_color; font-size: $font_size'>&nbsp;_(Network)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
 	$network_color = "";
 }
 
 if ($enhanced_log_cfg['LOGIN'] == "yes") {
-	$login_color = $enhanced_log_cfg['LOGIN_CLR'];
-	$login_tag = "<span style='background-color:$login_color; font-size: $font_size'>&nbsp;_(Login)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$login_color			= $enhanced_log_cfg['LOGIN_CLR'];
+	$login_tag				= "<span style='background-color:$login_color; font-size: $font_size'>&nbsp;_(Login)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$login_color = "";
+	$login_color			= "";
 }
 
 if ($enhanced_log_cfg['EMHTTP'] == "yes") {
-	$emhttp_color = $enhanced_log_cfg['EMHTTP_CLR'];
-	$emhttp_tag = "<span style='background-color:$emhttp_color; font-size: $font_size'>&nbsp;_(emhttp)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
+	$emhttp_color			= $enhanced_log_cfg['EMHTTP_CLR'];
+	$emhttp_tag				= "<span style='background-color:$emhttp_color; font-size: $font_size'>&nbsp;_(emhttp)_&nbsp;</span>&nbsp;&nbsp;&nbsp;";
 } else {
-	$emhttp_color = "";
+	$emhttp_color			= "";
 }
 
 if ($enhanced_log_cfg['OTHER'] == "yes") {
-	$other_color = $enhanced_log_cfg['OTHER_CLR'];
-	$other_tag = "<span style='background-color:$other_color; font-size: $font_size'>&nbsp;_(Other)_&nbsp;</span>";
+	$other_color			= $enhanced_log_cfg['OTHER_CLR'];
+	$other_tag				= "<span style='background-color:$other_color; font-size: $font_size'>&nbsp;_(Other)_&nbsp;</span>";
 } else {
-	$other_color = "";
+	$other_color			= "";
 }
 
 /* Adjust array colors. */
@@ -186,7 +189,6 @@ foreach ($log_lines as $line) {
 	}
 }
 echo "</pre>";
-
 ?>
 
 <script>
@@ -198,6 +200,7 @@ function cleanUp() {
 		setTimeout(cleanUp,4000);
 	}
 }  
+
 function getlog() {
 	$('input[value="Download"]').val('Downloading...').prop('disabled',true);
 	$.post('/webGui/include/Download.php',{cmd:'save',source:'/var/log/syslog',file:'<?=$zip?>'},function(zip) {
@@ -206,25 +209,20 @@ function getlog() {
 	});
 }
 
-$(document).ready(function() {
-    $(document).scrollTop($(document).height());
-});
-
 $(function() {
 	if ( typeof caPluginUpdateCheck === "function" ) {
 		caPluginUpdateCheck("enhanced.log.plg");
 	}
-});
 
-<?if ($display['resize']):?>
-function resize() {
-  $('pre.up').height(Math.max(window.innerHeight-330,370)).show();
-}
-$(function() {
-  resize();
-  $(window).bind('resize',function(){resize();});
+	<?if ($display['resize']):?>
+	function resize() {
+	  $('pre.up').height(Math.max(window.innerHeight-330,370)).show();
+	}
+
+	resize();
+	$(window).bind('resize',function(){resize();});
+	<?endif;?>
 });
-<?endif;?>
 
 <?if ($other_color != ""):?>
 	$('.tabs').append("<span class='status'><?=$other_tag?></span>");
@@ -264,4 +262,3 @@ $(function() {
 <input type="button" value="_(Download)_" onclick="getlog()">
 <input type="button" value="_(Refresh)_" onclick="refresh()">
 <button type="button" onclick="done()">_(Done)_</button>
-<?endif;?>
