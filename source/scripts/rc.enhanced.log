@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-/* Copyright 2022-2023, Dan Landon
+/* Copyright 2022-2026, Dan Landon
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License version 2,
@@ -9,22 +9,25 @@
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  */
+?>
 
-$plugin			= "enhanced.log";
-$rsyslog_conf	= "/etc/rsyslog.conf";
-$file			= "/boot/config/plugins/$plugin/syslog_filter.conf";
-$filter_file	="/etc/rsyslog.d/02-blocklist-extra.conf";
-$text			= explode("\n", file_get_contents($file));
+<?
+$rsyslog_conf		= "/etc/rsyslog.conf";
+$file				= "/boot/config/plugins/enhanced.log/syslog_filter.conf";
+$filter_file		= "/etc/rsyslog.d/02-blocklist-extra.conf";
+$escapeSequences	= array("'", '"');
+$file_contents		= str_replace($escapeSequences, "", @file_get_contents($file));
+$text				= explode("\n", $file_contents);
 
 /* Set up the log filter. */
 $filter			= array();
 foreach($text as $line) {
 	if ($line != '') {
-		$filter[] = ":msg,contains,".$line." stop\n";
+		$filter[] = ":msg,contains,\"".$line."\" stop\n";
 	}
 }
 
-file_put_contents($filter_file, $filter);
+@file_put_contents($filter_file, $filter);
 
 /* Setup log rules */
 @chmod($filter_file, 0644);
