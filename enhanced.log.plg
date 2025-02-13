@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.02.11">
+<!ENTITY version    "2025.02.13">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"cb4fb56dc4b8d5e41e4e911853b32ae5">
+<!ENTITY MD5		"361d5108cc1651c624f770ec251cfe1a">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Scroll to the bottom of the log on initial load of the page.
+
+###2025.02.11
 - Fix: Change Unraid minimum version to 6.11.
 - Fix: Language translation updates.
 - Fix: Change variables to constants that should not be variables.
