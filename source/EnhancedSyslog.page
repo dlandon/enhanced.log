@@ -209,6 +209,13 @@ function getlog() {
 	});
 }
 
+window.addEventListener("load", function() {
+	var logContainer = document.querySelector("pre.up");
+	if (logContainer) {
+		logContainer.scrollTop = logContainer.scrollHeight;
+	}
+});
+
 $(function() {
 	if ( typeof caPluginUpdateCheck === "function" ) {
 		caPluginUpdateCheck("enhanced.log.plg");
