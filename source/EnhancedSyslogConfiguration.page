@@ -17,14 +17,6 @@ Title="Configuration"
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 ?>
 
-<style>
-	textarea {
-		outline: 1px solid; /* Solid border. */
-		border-radius: 5px; /* Slightly rounded corners. */
-		padding: 5px 15px; /* 5px top/bottom, 15px left/right */
-	}
-</style>
-
 <table class="tablesorter shift ups">
 <thead><tr><th>_(Syslog Configuration)_</th></tr></thead>
 </table>
