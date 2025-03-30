@@ -20,12 +20,24 @@ $file_contents		= str_replace($escapeSequences, "", @file_get_contents($file));
 $text				= explode("\n", $file_contents);
 
 /* Set up the log filter. */
-$filter			= array();
-foreach($text as $line) {
-	if ($line != '') {
-		$filter[] = ":msg,contains,\"".$line."\" stop\n";
+$filter = array();
+
+foreach ($text as $line) {
+	/* Trim whitespace */
+	$line = trim($line);
+
+	/* Skip empty lines */
+	if ($line === '') {
+		continue;
 	}
+
+	/* Remove unwanted characters while preserving log-friendly symbols */
+	$line = preg_replace('/[^\w\s\-_.,!@#$%^&*()<>\/:;=\[\]{}|]/u', '', $line);
+
+	/* Add the sanitized line to the filter */
+	$filter[] = ":msg,contains,\"" . $line . "\" stop\n";
 }
+
 
 @file_put_contents($filter_file, $filter);
 
@@ -40,6 +52,9 @@ $str = str_replace("RuleSet local", "RuleSet RSYSLOG_DefaultRuleset", $str);
 $str = str_replace("DefaultRuleset local", "DefaultRuleset RSYSLOG_DefaultRuleset", $str);
 file_put_contents($rsyslog_conf, $str);
 
-/* restart rsyslog */
-shell_exec("/etc/rc.d/rc.rsyslogd restart");
+/* Restart rsyslog if it is running */
+$running = trim(shell_exec("/etc/rc.d/rc.rsyslogd status") ?? "");
+if ($running == "Syslog server daemon is currently running.") {
+	shell_exec("/etc/rc.d/rc.rsyslogd restart");
+}
 ?>
