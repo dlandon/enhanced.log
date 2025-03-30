@@ -35,7 +35,7 @@ $text			= @file_get_contents($file);
 	<input type="hidden" name="#raw_file" value="true">
 	<input type="hidden" name="#file" value="<?=$file;?>">
 
-	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%;"><?=htmlspecialchars($text);?></textarea>
+	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" placeholder='Example: "spinning down" to filter spin down messages' style="font-family:bitstream;width:70%;"><?=htmlspecialchars($text);?></textarea>
 
 	<dl><dt>&nbsp;</dt><dd>
 		<form name="apply_syslog_filter" method="POST" action="/update.php" target="progressFrame">
