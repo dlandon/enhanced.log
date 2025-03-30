@@ -34,13 +34,21 @@ $enhanced_log_cfg	= parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 $display_lines		= (isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES'] != "" ? $enhanced_log_cfg['LINES'] : 1000);
 
 /* Array of strings and highlight colors - "match string", "event". */
-$pre_defined = array_map('str_getcsv', file('plugins/enhanced.log/syslog_match.conf'));
+$pre_defined = array_map(
+	function($line) { return str_getcsv($line, ",", '"', "\\"); },
+	file('plugins/enhanced.log/syslog_match.conf')
+);
+
 if ($enhanced_log_cfg['OTHER'] == "yes") {
-	$custom		= array_map('str_getcsv', file('/boot/config/plugins/enhanced.log/custom_syslog.conf'));
-	$match		= array_merge($pre_defined, $custom);
+	$custom	= array_map(
+		function($line) { return str_getcsv($line, ",", '"', "\\"); },
+		file('/boot/config/plugins/enhanced.log/custom_syslog.conf')
+	);
+	$match	= array_merge($pre_defined, $custom);
 } else {
-	$match		= array_merge($pre_defined);
+	$match	= $pre_defined;
 }
+
 unset($pre_defined);
 unset($custom);
 
