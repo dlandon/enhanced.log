@@ -1,6 +1,7 @@
 Menu="UNRAID-OS"
 Title="Enhanced System Log"
 Icon="align-left"
+Tag="list"
 ---
 <?php
 /* Copyright 2015-2016, Lime Technology
