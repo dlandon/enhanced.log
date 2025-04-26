@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.02.13">
+<!ENTITY version    "2025.04.26">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"361d5108cc1651c624f770ec251cfe1a">
+<!ENTITY MD5		"221d6f0fd8daeb166d0b4616e66382b9">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,10 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Error from update of php.
+- Fix: Filter user input to be sure all characters are log friendly.
+
+###2025.02.13
 - Fix: Scroll to the bottom of the log on initial load of the page.
 
 ###2025.02.11
