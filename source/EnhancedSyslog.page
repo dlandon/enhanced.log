@@ -32,7 +32,7 @@ $display_lines		= (isset($enhanced_log_cfg['LINES']) && $enhanced_log_cfg['LINES
 /* Array of strings and highlight colors - "match string", "event". */
 $pre_defined = array_map(
 	function($line) { return str_getcsv($line, ",", '"', "\\"); },
-	file('plugins/enhanced.log/syslog_match.conf')
+	file('plugins/enhanced.log/conf/syslog_match.conf')
 );
 
 if ($enhanced_log_cfg['OTHER'] == "yes") {
