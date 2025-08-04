@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.05.28">
+<!ENTITY version    "2025.08.04">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"7415d9e309e096eafb588fe10a88abd7">
+<!ENTITY MD5		"705848049282e73af9d111ad4332f17f">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: UI changes for Unraid 7.2.
+
+###2025.05.28
 - Fix: Update license.
 
 ###2025.04.26
