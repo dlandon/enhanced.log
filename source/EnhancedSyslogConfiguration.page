@@ -150,12 +150,15 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	> Set to **Yes** to enable **Other** highlighting in the enhanced log.
 :end
 
-	<input type="submit" name="#default" value="_(Default)_">
-	: <input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
+<input type="submit" name="#default" value="_(Default)_">
+: <span class="inline-block">
+	<input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
+</span>
+&nbsp;
 
 :enhancd_log_default_plug:
 	> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
 :end
 
-	</form>
+</form>
 </div>

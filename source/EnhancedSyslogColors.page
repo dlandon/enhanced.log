@@ -21,10 +21,12 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 <div style="width: 100%; float:left">
 	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
-	<span style="float:right;margin-right:10px"><a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank" title="Color Selection Chart"> <u>_(Color Selection Chart)_</u></a></span>
 
 	_('Error' Highlight Color)_:
-	: <input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['ERRORS_CLR']);?>">
+	: <span class="inline-block">
+		<input type="text" name="ERRORS_CLR" class="narrow" maxlength="20" value="<?=htmlspecialchars($enhanced_log_cfg['ERRORS_CLR']);?>">
+		<span><a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank" title="Color Selection Chart"> <u>_(Color Selection Chart)_</u></a></span>
+	</span>
 
 :enhanced_log_color_error_plug:
 	> Color to use for **Error** highlighting.  You can use the color name or number.  The color number begins with a '#'.
@@ -100,9 +102,12 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	> Color to use for **Other** highlighting.  You can use the color name or number.  The color number begins with a '#'.
 :end
 
-	<input type="submit" name="#default" value="_(Default)_">
-	: <input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
+<input type="submit" name="#default" value="_(Default)_">
+: <span class="inline-block">
+	<input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
+</span>
+&nbsp;
 
-	> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
-	</form>
+> **Default** resets the Configuration and Colors.  Click **Apply** to save your changes.  Click **Done** when you are finished with your changes.
+</form>
 </div>

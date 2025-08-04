@@ -10,6 +10,11 @@ Title="Custom Match"
  */
 ?>
 
+<?
+$file			= "/boot/config/plugins/enhanced.log/custom_syslog.conf";
+$text			= @file_get_contents($file);
+?>
+
 <table class="tablesorter shift ups">
 <thead><tr><th>_(Custom Syslog Match Strings)_</th></tr></thead>
 </table>
@@ -25,27 +30,22 @@ Title="Custom Match"
 > Events are: "error", "minor issues", "lime tech", "array", "system", "file system", "drive related", "network", "login", "emhttp", "other".
 :end
  
-<?
-$file			= "/boot/config/plugins/enhanced.log/custom_syslog.conf";
-$text			= @file_get_contents($file);
-?>
+<form markdown="1" method="POST" action="/update.php" target="progressFrame">
+<input type="hidden" name="#include" value="/webGui/include/update.file.php">
+<input type="hidden" name="#raw_file" value="true">
+<input type="hidden" name="#file" value="<?=$file;?>">
 
-<div style="width: 80%; float:left">
-	<form markdown="1" method="POST" action="/update.php" target="progressFrame">
-	<input type="hidden" name="#include" value="/webGui/include/update.file.php">
-	<input type="hidden" name="#raw_file" value="true">
-	<input type="hidden" name="#file" value="<?=$file;?>">
+&nbsp;
+<textarea spellcheck="false" cols="80" rows="17" maxlength="2048" name="text" style="font-family:bitstream;width:50%;"><?=htmlspecialchars($text);?></textarea>
 
-	: <textarea spellcheck="false" cols="80" rows="22" maxlength="2048" name="text" style="font-family:bitstream;width:70%;"><?=htmlspecialchars($text);?></textarea>
-
-	<dl><dt>&nbsp;</dt><dd>
-	<input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
-	</dd></dl>
+&nbsp;
+<span class="inline-block">
+  <input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
+</span>
 
 :enhanced_log_custom_buttons_plug:
-	> Click the **Apply** button to save your custom events.  Click **Reset** to
-	> undo any changes you make before you have saved the custom events. Click **Done** to exit this page.
+> Click the **Apply** button to save your custom events.  Click **Reset** to
+> undo any changes you make before you have saved the custom events. Click **Done** to exit this page.
 :end
 
-	</form>
-</div>
+</form>
