@@ -49,7 +49,7 @@ unset($pre_defined);
 unset($custom);
 
 if ($display['theme'] == 'white' || $display['theme'] == 'black') {
-	$font_size	= '10pt';
+	$font_size	= '12pt';
 } else {
 	$font_size	= '14pt';
 }
@@ -173,6 +173,15 @@ foreach ($match as $s) {
 	}
 	$i++;
 }
+
+/* Build legend line */
+$legend = "<div class='log-legend' style='margin-bottom:6px; font-size:$font_size; text-align:right'>";
+$legend .= $errors_tag.$minor_issues_tag.$lime_tech_tag.$array_tag.$system_tag.
+			$file_system_tag.$drive_related_tag.$network_tag.$login_tag.
+			$emhttp_tag.$other_tag;
+$legend .= "</div>";
+
+echo $legend;
 
 echo $display['resize'] ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
 $log_lines = explode("\n", shell_exec("/usr/bin/cat /var/log/syslog | tail -n ".escapeshellarg($display_lines)));

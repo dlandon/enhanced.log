@@ -11,8 +11,13 @@ Title="Configuration"
 ?>
 
 <?
-$enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
+/* Define our plugin name. */
+define('ENHANCED_LOG_PLUGIN', 'enhanced.log');
+
+$enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/".ENHANCED_LOG_PLUGIN."/enhanced.log.cfg" );
 ?>
+
+<link rel="stylesheet" href="<?autov("/plugins/".ENHANCED_LOG_PLUGIN."/assets/enhanced-log.css")?>">
 
 <table class="tablesorter shift ups">
 <thead><tr><th>_(Syslog Configuration)_</th></tr></thead>
@@ -23,7 +28,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 	<input type="hidden" name="#file" value="enhanced.log/enhanced.log.cfg">
 
 	_(Show All Lines in Log)_?
-	: <select name="TEXT" size="1">
+	: <select name="TEXT" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['TEXT'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['TEXT'], "no", "_(No)_");?>
 	  </select>
@@ -33,14 +38,14 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Number of Lines to Display)_:
-	: <input type="text" name="LINES" class="narrow" maxlength="4" value="<?=htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000">
+	: <input type="text" name="LINES" class="el-numeric-input" maxlength="4" value="<?=htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000">
 
 :enhanced_log_number_of_lines_plug:
 	> Number of lines to display in the Enhanced Syslog.  Default is 1000.
 :end
 
 	_(Enable 'Error' Highlighting)_?
-	: <select name="ERRORS" size="1">
+	: <select name="ERRORS" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['ERRORS'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['ERRORS'], "no", "_(No)_");?>
 	  </select>
@@ -50,7 +55,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'Minor Issues' Highlighting)_?
-	: <select name="MINOR_ISSUES" size="1">
+	: <select name="MINOR_ISSUES" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['MINOR_ISSUES'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['MINOR_ISSUES'], "no", "_(No)_");?>
 	  </select>
@@ -60,7 +65,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'Lime Tech' Highlighting)_?
-	: <select name="LIME_TECH" size="1">
+	: <select name="LIME_TECH" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['LIME_TECH'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['LIME_TECH'], "no", "_(No)_");?>
 	  </select>
@@ -71,7 +76,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 
 
 	_(Enable 'Array' Highlighting)_?
-	: <select name="ARRAY" size="1">
+	: <select name="ARRAY" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['ARRAY'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['ARRAY'], "no", "_(No)_");?>
 	  </select>
@@ -81,7 +86,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'System' Highlighting)_?
-	: <select name="SYSTEM" size="1">
+	: <select name="SYSTEM" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['SYSTEM'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['SYSTEM'], "no", "_(No)_");?>
 	  </select>
@@ -91,7 +96,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'File System' Highlighting)_?
-	: <select name="FILE_SYSTEM" size="1">
+	: <select name="FILE_SYSTEM" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['FILE_SYSTEM'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['FILE_SYSTEM'], "no", "_(No)_");?>
 	  </select>
@@ -101,7 +106,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'Drive Related' Highlighting)_?
-	: <select name="DRIVE_RELATED" size="1">
+	: <select name="DRIVE_RELATED" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['DRIVE_RELATED'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['DRIVE_RELATED'], "no", "_(No)_");?>
 	  </select>
@@ -111,7 +116,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'Network' Highlighting)_?
-	: <select name="NETWORK" size="1">
+	: <select name="NETWORK" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['NETWORK'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['NETWORK'], "no", "_(No)_");?>
 	  </select>
@@ -121,7 +126,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'Login' Highlighting)_?
-	: <select name="LOGIN" size="1">
+	: <select name="LOGIN" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['LOGIN'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['LOGIN'], "no", "_(No)_");?>
 	  </select>
@@ -131,7 +136,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'emhttp' Highlighting)_?
-	: <select name="EMHTTP" size="1">
+	: <select name="EMHTTP" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['EMHTTP'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['EMHTTP'], "no", "_(No)_");?>
 	  </select>
@@ -141,7 +146,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.
 :end
 
 	_(Enable 'Other' Highlighting)_?
-	: <select name="OTHER" size="1">
+	: <select name="OTHER" size="1" class="narrow">
 		<?=mk_option($enhanced_log_cfg['OTHER'], "yes", "_(Yes)_");?>
 		<?=mk_option($enhanced_log_cfg['OTHER'], "no", "_(No)_");?>
 	  </select>
