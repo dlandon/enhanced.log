@@ -181,9 +181,19 @@ $legend .= $errors_tag.$minor_issues_tag.$lime_tech_tag.$array_tag.$system_tag.
 			$emhttp_tag.$other_tag;
 $legend .= "</div>";
 
-echo $legend;
+/* Build legend line */
+$legend = "<div class='log-legend' style='margin-bottom:6px; font-size:$font_size; text-align:right'>";
+$legend .= $errors_tag.$minor_issues_tag.$lime_tech_tag.$array_tag.$system_tag.
+			$file_system_tag.$drive_related_tag.$network_tag.$login_tag.
+			$emhttp_tag.$other_tag;
+$legend .= "</div>";
 
-echo $display['resize'] ? "<pre class='up' style='display:none'>" : "<pre class='up'>";
+/* Output container with legend and log */
+echo "<div class='log-container' style='position:relative;'>";
+	echo $legend;
+	echo $display['resize'] 
+		? "<pre class='up' style='display:none; margin-top:5px'>" 
+		: "<pre class='up' style='margin-top:5px'>";
 $log_lines = explode("\n", shell_exec("/usr/bin/cat /var/log/syslog | tail -n ".escapeshellarg($display_lines)));
 foreach ($log_lines as $line) {
 	$line .="\n";
@@ -202,6 +212,7 @@ foreach ($log_lines as $line) {
 	}
 }
 echo "</pre>";
+echo "</div>";
 ?>
 
 <script>
@@ -244,39 +255,6 @@ $(function() {
 	<?endif;?>
 });
 
-<?if ($other_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$other_tag?></span>");
-<?endif;?>
-<?if ($emhttp_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$emhttp_tag?></span>");
-<?endif;?>
-<?if ($login_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$login_tag?></span>");
-<?endif;?>
-<?if ($network_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$network_tag?></span>");
-<?endif;?>
-<?if ($drive_related_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$drive_related_tag?></span>");
-<?endif;?>
-<?if ($file_system_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$file_system_tag?></span>");
-<?endif;?>
-<?if ($system_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$system_tag?></span>");
-<?endif;?>
-<?if ($array_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$array_tag?></span>");
-<?endif;?>
-<?if ($lime_tech_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$lime_tech_tag?></span>");
-<?endif;?>
-<?if ($minor_issues_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$minor_issues_tag?></span>");
-<?endif;?>
-<?if ($errors_color != ""):?>
-	$('.tabs').append("<span class='status'><?=$errors_tag?></span>");
-<?endif;?>
 </script>
 
 <input type="button" value="_(Download)_" onclick="getlog()">
