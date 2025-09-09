@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.08.04">
+<!ENTITY version    "2025.09.09">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"705848049282e73af9d111ad4332f17f">
+<!ENTITY MD5		"63753775683ba7cf3f925f90385d8079">
 ]>
 
 <PLUGIN	name="&name;"
