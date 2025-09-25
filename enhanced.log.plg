@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.09.09a">
+<!ENTITY version    "2025.09.25">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"9a9e9bfeba5ae5ff50519d6ecf90b9dd">
+<!ENTITY MD5		"5976ed33cd31d768a7fd7de8c0e25051">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Add: Numeric inputs limited to numbers and min and max values added.
+
+###2025.09.09a
 - Fix: UI changes for Unraid 7.2.
 
 ###2025.05.28
