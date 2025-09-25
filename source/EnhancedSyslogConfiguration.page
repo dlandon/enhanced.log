@@ -38,7 +38,7 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/".ENHANCED_LOG_PLUGIN.
 :end
 
 	_(Number of Lines to Display)_:
-	: <input type="text" name="LINES" class="el-numeric-input" maxlength="4" value="<?=htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000">
+	: <input type="number" name="LINES" class="el-numeric-input" maxlength="4" value="<?=htmlspecialchars($enhanced_log_cfg['LINES']);?>" placeholder="1000" min="1" max="9999">
 
 :enhanced_log_number_of_lines_plug:
 	> Number of lines to display in the Enhanced Syslog.  Default is 1000.
