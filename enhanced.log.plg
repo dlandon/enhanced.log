@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.09.25">
+<!ENTITY version    "2025.10.03">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"5976ed33cd31d768a7fd7de8c0e25051">
+<!ENTITY MD5		"837e46fa046334063b87db3b90282271">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Php warnings on log page.
+
+###2025.09.25
 - Add: Numeric inputs limited to numbers and min and max values added.
 
 ###2025.09.09a
