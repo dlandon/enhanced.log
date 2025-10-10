@@ -30,6 +30,7 @@ $text			= @file_get_contents($file);
 <input type="hidden" name="#include" value="/webGui/include/update.file.php">
 <input type="hidden" name="#raw_file" value="true">
 <input type="hidden" name="#file" value="<?=$file;?>">
+<input type="hidden" name="#command" value="/usr/local/emhttp/plugins/enhanced.log/scripts/rc.enhanced.log">
 
 &nbsp;
 <textarea spellcheck="false" cols="80" rows="17" maxlength="2048" name="text" placeholder='Example: "spinning down" to filter spin down messages' style="font-family:bitstream;width:50%;"><?=htmlspecialchars($text);?></textarea>
