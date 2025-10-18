@@ -6,5 +6,19 @@
 }
 
 .title.shift {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.latest.title.shift {
 	margin-bottom: 0;
+}
+
+.legacy.title.shift {
+	margin-bottom: 0.1em;
+}
+
+.title-left {
+	text-align: left;
 }

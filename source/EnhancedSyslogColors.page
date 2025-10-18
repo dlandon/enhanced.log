@@ -14,8 +14,8 @@ Title="Colors"
 $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/enhanced.log/enhanced.log.cfg" );
 ?>
 
-<div class='title shift'>
-	<span style="float:left;">_(Syslog Colors)_</span>
+<div class='<?=$title_class;?> title shift'>
+	<span>_(Syslog Colors)_</span>
 </div>
 
 <div style="width: 100%; float:left">

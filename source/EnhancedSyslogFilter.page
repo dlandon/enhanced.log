@@ -15,8 +15,8 @@ $file			= "/boot/config/plugins/enhanced.log/syslog_filter.conf";
 $text			= @file_get_contents($file);
 ?>
 
-<div class='title shift'>
-	<span style="float:left;">_(Syslog Filter Strings)_</span>
+<div class='<?=$title_class;?> title shift'>
+	<span>_(Syslog Filter Strings)_</span>
 </div>
 
 :enhanced_log_filter_plug:
@@ -25,17 +25,15 @@ $text			= @file_get_contents($file);
 >
 > Enter the log strings you want to filtered from the Syslog.  Each entry is on a separate line with leading and trailing quotes.
 :end
- 
+
 <form markdown="1" method="POST" action="/update.php" target="progressFrame">
 <input type="hidden" name="#include" value="/webGui/include/update.file.php">
 <input type="hidden" name="#raw_file" value="true">
 <input type="hidden" name="#file" value="<?=$file;?>">
 <input type="hidden" name="#command" value="/usr/local/emhttp/plugins/enhanced.log/scripts/rc.enhanced.log">
 
-&nbsp;
 <textarea spellcheck="false" cols="80" rows="17" maxlength="2048" name="text" placeholder='Example: "spinning down" to filter spin down messages' style="font-family:bitstream;width:50%;"><?=htmlspecialchars($text);?></textarea>
 
-&nbsp;
 <span class="inline-block">
 	<input type="submit" value='_(Apply)_'><input type="button" value="_(Done)_" onclick="done()">
 </span>
