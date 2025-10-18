@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.10.10">
+<!ENTITY version    "2025.10.18">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"c2bd1f599ed9cc3915ee5aa74a39b4ca">
+<!ENTITY MD5		"f252b472f63a34b9b48410978b647a4d">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: More UI fixes for Unraid 7.2.
+
+###2025,10.10
 - Fix: Syslog not restarted after making syslog filter changes.
 
 ###2025.10.03
