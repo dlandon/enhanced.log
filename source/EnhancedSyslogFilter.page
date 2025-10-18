@@ -15,9 +15,9 @@ $file			= "/boot/config/plugins/enhanced.log/syslog_filter.conf";
 $text			= @file_get_contents($file);
 ?>
 
-<table class="tablesorter shift ups">
-<thead><tr><th>_(Syslog Filter Strings)_</th></tr></thead>
-</table>
+<div class='title shift'>
+	<span style="float:left;">_(Syslog Filter Strings)_</span>
+</div>
 
 :enhanced_log_filter_plug:
 > You can filter out log entries to keep your Syslog from being overwhelmed with debug or redundant log entries.  You should only filter out log entries that you know are unnecessary or redundant.

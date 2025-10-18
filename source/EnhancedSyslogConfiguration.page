@@ -19,9 +19,9 @@ $enhanced_log_cfg = parse_ini_file( "/boot/config/plugins/".ENHANCED_LOG_PLUGIN.
 
 <link rel="stylesheet" href="<?autov("/plugins/".ENHANCED_LOG_PLUGIN."/assets/enhanced-log.css")?>">
 
-<table class="tablesorter shift ups">
-<thead><tr><th>_(Syslog Configuration)_</th></tr></thead>
-</table>
+<div class='title shift'>
+	<span style="float:left;">_(Syslog Coniguration)_</span>
+</div>
 
 <div style="width: 100%; float:left">
 	<form markdown="1" name="enhanced_log_settings" method="POST" action="/update.php" target="progressFrame">

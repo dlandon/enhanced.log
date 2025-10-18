@@ -15,9 +15,9 @@ $file			= "/boot/config/plugins/enhanced.log/custom_syslog.conf";
 $text			= @file_get_contents($file);
 ?>
 
-<table class="tablesorter shift ups">
-<thead><tr><th>_(Custom Syslog Match Strings)_</th></tr></thead>
-</table>
+<div class='title shift'>
+	<span style="float:left;">_(Custom Syslog Match Strings)_</span>
+</div>
 
 :enhanced_log_custom_plug:
 > Enter any custom events you want highlighted in the log.  Any custom events you enter will be processed after the built in events.

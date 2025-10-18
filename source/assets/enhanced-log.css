@@ -4,3 +4,7 @@
 	max-width: 100% !important;
 	box-sizing: border-box;
 }
+
+.title.shift {
+	margin-bottom: 0;
+}
