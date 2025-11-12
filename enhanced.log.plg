@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.11.12">
+<!ENTITY version    "2025.11.12a">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"ac058db2555634e84e9aa693df7fdd34">
+<!ENTITY MD5		"0147f0300cb0c61455ddf8c6263736d8">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,7 +22,7 @@
 <CHANGES>
 ##&name;
 ###&version;
-- Rem: Duplicate event enabling the syslog filter.
+- Rem: Remove events enabling the syslog filter.  Installing the plugin handles it.
 
 ###2025.10.18a
 - Fix: More UI fixes for Unraid 7.2.
@@ -237,8 +237,9 @@ tar -xf /boot/config/plugins/&name;/&name;-&version;.tgz -C /usr/local/emhttp/pl
 chmod +x /usr/local/emhttp/plugins/&name;/scripts/* /usr/local/emhttp/plugins/&name;/event/*
 
 # Start rsyslog filtering.
-echo "Restarting rsyslog..."
-/usr/local/emhttp/plugins/&name;/scripts/rc.enhanced.log
+echo "Enabling Syslog Filter..."
+logger "Enabling Syslog filter..." -t"enhanced.log"
+/usr/local/emhttp/plugins/&name;/scripts/rc.enhanced.log &
 </INLINE>
 </FILE>
 
