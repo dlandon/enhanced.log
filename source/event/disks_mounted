@@ -12,4 +12,4 @@ if [ -z ${DOCROOT} ];then
 fi
 
 logger "Enabling Syslog filter..." -t"enhanced.log"
-${DOCROOT}/plugins/enhanced.log/scripts/rc.enhanced.log
+${DOCROOT}/plugins/enhanced.log/scripts/rc.enhanced.log &
