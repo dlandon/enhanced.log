@@ -1,5 +1,3 @@
-### enhanced.log plugin for Unraid
-
 Copyright (C) 2015-2025 Dan Landon
 
 Permission is granted to use this software for personal, educational, or internal use only.
