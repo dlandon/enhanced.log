@@ -2,12 +2,12 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.11.12a">
+<!ENTITY version    "2025.11.25">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
-<!ENTITY MD5		"0147f0300cb0c61455ddf8c6263736d8">
+<!ENTITY MD5		"147c71109d2ddf0ba833cf09dcca47e5">
 ]>
 
 <PLUGIN	name="&name;"
@@ -22,6 +22,7 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: Refactor the scroll to the bottom of the log for better browser compatibility.
 - Rem: Remove events enabling the syslog filter.  Installing the plugin handles it.
 
 ###2025.10.18a
@@ -195,10 +196,16 @@
 </CHANGES>
 
 <!--
-Copyright 2015-2025, Dan Landon
+Copyright 2015-2025 Dan Landon
 This plugin adds a webGui page to view the system log with highlighted lines.
 You can enable or disable event highlighting and set your own colors for each event.
 You can add your own search string to highlight in the log.
+
+Permission is granted to use this software for personal, educational, or internal use only.
+Commercial use, redistribution, or modification of this software or any derived works
+is strictly prohibited without prior written permission.
+
+THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 -->
 
 <!--
