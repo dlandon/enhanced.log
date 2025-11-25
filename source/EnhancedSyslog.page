@@ -247,10 +247,23 @@ function getlog() {
 }
 
 window.addEventListener("load", function() {
-	var logContainer = document.querySelector("pre.up");
-	if (logContainer) {
-		logContainer.scrollTop = logContainer.scrollHeight;
+	function scrollLogToBottom() {
+		const pre = document.querySelector('pre.up');
+		if (!pre) return;
+
+		const scroll = () => { pre.scrollTop = pre.scrollHeight; };
+
+		/* Scroll after paint */
+		requestAnimationFrame(scroll);
+
+		/* Fallback retries in case the layout isn't ready yet */
+		setTimeout(scroll, 50);
+		setTimeout(scroll, 150);
+		setTimeout(scroll, 300);
 	}
+
+	/* Call when tab is first shown or log is updated */
+	scrollLogToBottom();
 });
 
 $(function() {
