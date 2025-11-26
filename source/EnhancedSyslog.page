@@ -273,7 +273,7 @@ $(function() {
 
 	<?if ($display['resize']):?>
 	function resize() {
-	  $('pre.up').height(Math.max(window.innerHeight-330,370)).show();
+	  $('pre.up').height(Math.max(window.innerHeight-350, 370)).show();
 	}
 
 	resize();
