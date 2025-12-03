@@ -2,9 +2,9 @@
 <!DOCTYPE PLUGIN [
 <!ENTITY name       "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.11.25">
+<!ENTITY version    "2025.12.03">
 <!ENTITY launch		"Tools/EnhancedSyslog">
-<!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
+<!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/v&version;">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://forums.unraid.net/topic/43115-enhanced-log-view-with-lines-highlighted-in-color/">
 <!ENTITY MD5		"147c71109d2ddf0ba833cf09dcca47e5">
@@ -22,6 +22,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- New: First releaase with versioning.
+
+###2025.12.03
 - Fix: Refactor the scroll to the bottom of the log for better browser compatibility.
 - Rem: Remove events enabling the syslog filter.  Installing the plugin handles it.
 
