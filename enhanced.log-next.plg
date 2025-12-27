@@ -3,7 +3,7 @@
 <!ENTITY name       "enhanced.log-next">
 <!ENTITY plugin      "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version    "2025.12.05">
+<!ENTITY version	"2025.12.27">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/v&version;">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
@@ -23,6 +23,9 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Fix: URL reference so the plugin will update.
+
+###2025.12.03
 - First release as Enhanced Log (Next).
 
 ###2025.12.05
