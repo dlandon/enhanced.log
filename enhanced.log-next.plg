@@ -3,13 +3,13 @@
 <!ENTITY name       "enhanced.log-next">
 <!ENTITY plugin      "enhanced.log">
 <!ENTITY author     "dlandon">
-<!ENTITY version	"2026.03.22">
+<!ENTITY version	"2026.07.24">
 <!ENTITY launch		"Tools/EnhancedSyslog">
 <!ENTITY gitURL		"https://raw.githubusercontent.com/&author;/&name;/master">
 <!ENTITY tgzURL		"https://raw.githubusercontent.com/&author;/&name;/v&version;">
 <!ENTITY pluginURL	"&gitURL;/&name;.plg">
 <!ENTITY supportURL	"https://github.com/dlandon/&name;/discussions">
-<!ENTITY MD5		"196cf180d32512ab3b5a8dc832759766">
+<!ENTITY MD5		"333abc0b6e2c74142ac06224343f8b5b">
 ]>
 
 <PLUGIN	name="&plugin;"
@@ -24,6 +24,11 @@
 <CHANGES>
 ##&name;
 ###&version;
+- Add: Advanced log filtering.
+- Add: Support for multiple comma-separated search terms and '*'/'?' wildcards.
+- Add: Filter help text and a clear filter button.
+
+###2026.03.22
 - Fix: Align plugin name with other Next plugins.
 
 ###2026.01.13
