@@ -2,6 +2,8 @@
 
 This plugin adds a log viewer that highlights lines with colors in the log that allows finding log events much easier.
 
+The Enhanced Log supports filtering by multiple search terms, wildcard matching (* and ?), and exclusion filters using !, making it easy to isolate the events you're looking for.
+
 For support, feature requests, and discussions, please use the Discussions tab.
 
 ## Installing Enhanced Log - Next

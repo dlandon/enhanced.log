@@ -4,6 +4,11 @@ The **Next** series continues development of the plugin by the original author a
 
 Development of the plugin will continue with ongoing fixes, enhancements, and maintenance improvements.
 
+## 2026.07.26
+
+### New Feature
+- Add 'Today Only' to filter log activity to only today's activity.
+
 ## 2026.07.24
 
 ### New Feature
