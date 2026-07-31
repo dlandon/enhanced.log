@@ -1,5 +1,4 @@
-NOTICE
-------
+## NOTICE
 
 Project: Enhanced Log - Next
 Author: Dan Landon
